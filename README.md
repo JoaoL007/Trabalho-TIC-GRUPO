@@ -94,5 +94,3 @@ git pull origin main
 * Usem o **README.md** para explicar como rodar o projeto.
 
 ---
-
-👉 Queres que eu prepare também um **exemplo prático** (um mini projeto em GitHub) só para vocês treinarem estes passos antes de mexer no trabalho oficial?
