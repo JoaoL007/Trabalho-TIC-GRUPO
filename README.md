@@ -4,10 +4,12 @@
 Site de notícias focado em robótica, desenvolvido em grupo para o trabalho de TIC.
 
 ## Equipe
-- **João** (Owner do repositório)
-- **Membro 2** - _Adicionar nome_
-- **Membro 3** - _Adicionar nome_
-- **Membro 4** - _Adicionar nome_
+- **João** (Owner do repositório) - @JoaoL007
+- **Membro 2** - _Adicionar nome_ - Permissão: Write
+- **Membro 3** - _Adicionar nome_ - Permissão: Write
+- **Membro 4** - _Adicionar nome_ - Permissão: Write
+
+> 📋 **Nota sobre Permissões**: Todos os colaboradores devem ter permissão de **escritor (write)** no repositório. Veja [PERMISSIONS.md](PERMISSIONS.md) para instruções de configuração.
 
 ## Tecnologias Utilizadas
 - HTML5
@@ -111,5 +113,7 @@ git commit -m "fix: corrigir bug na navegação"
 
 ## Links Úteis
 - [Repositório no GitHub](https://github.com/JoaoL007/Trabalho-TIC-GRUPO)
+- [Configuração de Permissões](PERMISSIONS.md)
+- [Guia de Colaboração](COLABORACAO.md)
 - [Documentação do Git](https://git-scm.com/doc)
 - [Guia de Markdown](https://guides.github.com/features/mastering-markdown/)

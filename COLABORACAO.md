@@ -39,6 +39,8 @@
 
 ## Divisão de Responsabilidades
 
+> 📋 **Permissões Necessárias**: Todos os membros devem ter permissão de **escritor (write)** no repositório. Consulte [PERMISSIONS.md](PERMISSIONS.md) para instruções detalhadas de configuração.
+
 ### João (Project Owner)
 - **Pasta principal**: `/` (arquivos raiz)
 - **Responsabilidades**: 

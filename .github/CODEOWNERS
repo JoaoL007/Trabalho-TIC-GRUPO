@@ -1,0 +1,23 @@
+# CODEOWNERS - Define code ownership and review responsibilities
+# Each line is a file pattern followed by one or more owners
+# Learn more: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners - all collaborators can review and approve changes
+* @JoaoL007
+
+# Main configuration and documentation
+README.md @JoaoL007
+COLABORACAO.md @JoaoL007
+/.gitignore @JoaoL007
+
+# Root level files - João (Owner)
+/index.php @JoaoL007
+
+# Includes directory - Membro 2 (Navigator)
+/includes/ @JoaoL007
+
+# Pages directory - Membro 3 (Content Manager)
+/pages/ @JoaoL007
+
+# Assets directory - Membro 4 (Designer)
+/assets/ @JoaoL007
