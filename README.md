@@ -5,9 +5,9 @@ Site de notícias focado em robótica, desenvolvido em grupo para o trabalho de 
 
 ## Equipe
 - **João** (Owner do repositório)
-- **Membro 2** - _Adicionar nome_
-- **Membro 3** - _Adicionar nome_
-- **Membro 4** - _Adicionar nome_
+- **Eduardo** ()
+- **Carlos** ()
+- **Santiago** ()
 
 ## Tecnologias Utilizadas
 - HTML5
