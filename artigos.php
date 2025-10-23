@@ -8,11 +8,13 @@ $artigos = [
 ?>
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
   <meta charset="UTF-8">
   <title>Artigos - TecInfo</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header>
     <h1>TecInfo</h1>
@@ -27,7 +29,7 @@ $artigos = [
   <main>
     <h2>Artigos</h2>
     <ul class="lista-artigos">
-      <?php foreach($artigos as $a): ?>
+      <?php foreach ($artigos as $a): ?>
         <li>
           <h3><a href="artigo.php?id=<?= $a['id'] ?>"><?= $a['titulo'] ?></a></h3>
           <p><?= $a['desc'] ?></p>
@@ -40,4 +42,5 @@ $artigos = [
     &copy; <?= date("Y"); ?> TecInfo
   </footer>
 </body>
+
 </html>
