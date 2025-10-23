@@ -12,10 +12,12 @@ O repositório agora possui toda a documentação necessária sobre permissões,
 
 - [ ] Acessar https://github.com/JoaoL007/Trabalho-TIC-GRUPO/settings/access
 - [ ] Clicar em "Add people"
-- [ ] Adicionar Membro 2 com permissão "Write"
-- [ ] Adicionar Membro 3 com permissão "Write"
-- [ ] Adicionar Membro 4 com permissão "Write"
+- [ ] Adicionar Membro 2 (username do GitHub) com permissão "Write"
+- [ ] Adicionar Membro 3 (username do GitHub) com permissão "Write"
+- [ ] Adicionar Membro 4 (username do GitHub) com permissão "Write"
 - [ ] (Opcional) Configurar proteção da branch `main`
+
+> **Nota:** Peça aos membros da equipe seus usernames do GitHub antes de adicioná-los.
 
 ## 🚀 Link Direto
 
@@ -33,8 +35,7 @@ Este PR criou a seguinte documentação para ajudar:
 
 ## ❓ Dúvidas?
 
-Consulte os arquivos criados ou a documentação oficial do GitHub:
-https://docs.github.com/pt/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
+Consulte os arquivos criados ou a [documentação oficial do GitHub sobre colaboradores](https://docs.github.com/pt/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
 
 ## ✅ Depois de Configurar
 
