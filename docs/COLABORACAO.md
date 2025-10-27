@@ -18,11 +18,10 @@
 - `main` - Código de produção (sempre funcional)
 
 ### Branches de Desenvolvimento
-- `feature/pagina-inicial` - Desenvolvimento da página inicial
-- `feature/listagem-noticias` - Sistema de listagem de notícias
-- `feature/artigo-individual` - Página de artigo individual
-- `feature/navegacao` - Sistema de navegação
-- `feature/design` - Estilos CSS e design responsivo
+- `feature/joao-coordenacao` - Coordenação e página inicial (João)
+- `feature/eduardo-navegacao` - Sistema de navegação e layout (Eduardo)
+- `feature/carlos-noticias` - Sistema de notícias e artigos (Carlos)
+- `feature/santiago-design` - Design, CSS e responsividade (Santiago)
 
 ## Workflow de Desenvolvimento
 
@@ -41,28 +40,32 @@
 
 ### João (Project Owner)
 - **Pasta principal**: `/` (arquivos raiz)
+- **Branch**: `feature/joao-coordenacao`
 - **Responsabilidades**: 
   - index.php (página principal)
   - Configuração inicial
   - Merge de pull requests
   - Coordenação geral
 
-### Membro 2 (Navigator)
+### Eduardo (Navigator)
 - **Pasta principal**: `/includes/`
+- **Branch**: `feature/eduardo-navegacao`
 - **Responsabilidades**:
   - header.php, footer.php, nav.php
   - CSS de navegação
   - Menu responsivo
 
-### Membro 3 (Content Manager)
+### Carlos (Content Manager)
 - **Pasta principal**: `/pages/`
+- **Branch**: `feature/carlos-noticias`
 - **Responsabilidades**:
   - noticias.php (listagem)
   - artigo.php (página individual)
   - Sistema de comentários
 
-### Membro 4 (Designer)
+### Santiago (Designer)
 - **Pasta principal**: `/assets/`
+- **Branch**: `feature/santiago-design`
 - **Responsabilidades**:
   - CSS principal (style.css)
   - JavaScript interativo
