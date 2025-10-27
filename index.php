@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <title>RoboNews - Portal de Notícias sobre Robótica e Tecnologia</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
@@ -23,7 +23,7 @@
                     <br>O Futuro da Tecnologia
                 </h1>
                 <p class="hero-subtitle">
-                    Mantenha-se atualizado com as últimas inovações em robótica, 
+                    Mantenha-se atualizado com as últimas inovações em robótica,
                     inteligência artificial e tecnologias emergentes
                 </p>
                 <div class="hero-buttons">
@@ -85,7 +85,7 @@
                             Nova IA Consegue Aprender Tarefas Complexas em Minutos
                         </h3>
                         <p class="article-excerpt">
-                            Pesquisadores desenvolvem sistema de inteligência artificial 
+                            Pesquisadores desenvolvem sistema de inteligência artificial
                             capaz de dominar atividades complexas com tempo de treinamento mínimo...
                         </p>
                         <div class="article-meta">
