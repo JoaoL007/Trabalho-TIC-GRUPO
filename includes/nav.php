@@ -4,7 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoboNews - Menu</title>
-    <style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="../index.php" class="active">Início</a></li>
+                    <li><a href="pages/noticias.php">Notícias</a></li>
+                    <li><a href="pages/sobre.php">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+</html>
+
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -62,18 +78,3 @@
             font-weight: 700;
         }
     </style>
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <nav class="main-nav">
-                <ul class="nav-menu">
-                    <li><a href="../index.php" class="active">Início</a></li>
-                    <li><a href="pages/noticias.php">Notícias</a></li>
-                    <li><a href="pages/sobre.php">Sobre</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-</body>
-</html>
