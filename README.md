@@ -1,23 +1,39 @@
 # Site de Notícias de Robótica 🤖
 
 ## Descrição do Projeto
+
 Site de notícias focado em robótica, desenvolvido em grupo para o trabalho de TIC.
 
 ## Equipe
+
 - **João** (Owner do repositório)
 - **Eduardo** ()
 - **Carlos** ()
 - **Santiago** ()
 
 ## Tecnologias Utilizadas
+
 - HTML5
 - CSS3
 - JavaScript
 - PHP
 - MySQL (opcional)
 
+## 📚 Documentação para a Equipe
+
+### Para Iniciantes em GitHub:
+
+- 📖 **[Guia Completo de GitHub](GUIA-GITHUB.md)** - Tutorial detalhado para quem nunca usou Git/GitHub
+- ⚡ **[GitHub Cheat Sheet](GITHUB-CHEATSHEET.md)** - Referência rápida dos comandos mais usados
+
+### Outros Documentos:
+
+- 👥 **[Divisão de Tarefas](DIVISAO-TAREFAS.md)** - Responsabilidades de cada membro
+- 🤝 **[Colaboração](COLABORACAO.md)** - Regras de trabalho em equipe
+
 ## Estrutura do Projeto
-```
+
+````
 /
 ├── index.php              # Página principal
 ├── pages/                 # Páginas do site
@@ -40,25 +56,29 @@ Site de notícias focado em robótica, desenvolvido em grupo para o trabalho de 
 ```bash
 git clone https://github.com/JoaoL007/Trabalho-TIC-GRUPO.git
 cd Trabalho-TIC-GRUPO
-```
+````
 
 ### 2. Crie uma branch para sua funcionalidade
+
 ```bash
 git checkout -b feature/nome-da-funcionalidade
 ```
 
 ### 3. Faça suas alterações e commit
+
 ```bash
 git add .
 git commit -m "Descrição das mudanças"
 ```
 
 ### 4. Envie para o GitHub
+
 ```bash
 git push origin feature/nome-da-funcionalidade
 ```
 
 ### 5. Crie um Pull Request
+
 - Vá para o GitHub
 - Clique em "Compare & pull request"
 - Adicione descrição e solicite revisão
@@ -66,21 +86,25 @@ git push origin feature/nome-da-funcionalidade
 ## Divisão de Tarefas Sugerida
 
 ### João (Owner)
+
 - Configuração inicial do projeto
 - Página principal (index.php)
 - Coordenação do projeto
 
 ### Membro 2
+
 - Sistema de navegação
 - Página de listagem de notícias
 - CSS principal
 
 ### Membro 3
+
 - Página individual de artigos
 - Sistema de comentários (opcional)
 - JavaScript interativo
 
 ### Membro 4
+
 - Página "Sobre"
 - Responsividade do site
 - Otimizações e testes
@@ -96,6 +120,7 @@ git push origin feature/nome-da-funcionalidade
 ## Convenções de Código
 
 ### Commits
+
 - `feat:` nova funcionalidade
 - `fix:` correção de bug
 - `style:` mudanças de estilo/CSS
@@ -103,6 +128,7 @@ git push origin feature/nome-da-funcionalidade
 - `docs:` atualização de documentação
 
 ### Exemplo:
+
 ```bash
 git commit -m "feat: adicionar página de notícias"
 git commit -m "style: melhorar design do header"
@@ -110,6 +136,7 @@ git commit -m "fix: corrigir bug na navegação"
 ```
 
 ## Links Úteis
+
 - [Repositório no GitHub](https://github.com/JoaoL007/Trabalho-TIC-GRUPO)
 - [Documentação do Git](https://git-scm.com/doc)
 - [Guia de Markdown](https://guides.github.com/features/mastering-markdown/)
