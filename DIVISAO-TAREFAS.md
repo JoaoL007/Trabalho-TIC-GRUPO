@@ -3,6 +3,7 @@
 ## 🌳 BRANCHES ORGANIZADAS
 
 ### 🔵 **João** (Coordenador do Projeto)
+
 - **Branch:** `feature/joao-coordenacao`
 - **Responsabilidades:**
   - Página principal (`index.php`)
@@ -12,6 +13,7 @@
   - Documentação final
 
 ### 🟢 **Eduardo** (Navegação e Layout)
+
 - **Branch:** `feature/eduardo-navegacao`
 - **Responsabilidades:**
   - Sistema de navegação (`includes/nav.php`)
@@ -21,6 +23,7 @@
   - Estrutura base das páginas
 
 ### 🟡 **Carlos** (Conteúdo e Notícias)
+
 - **Branch:** `feature/carlos-noticias`
 - **Responsabilidades:**
   - Página de listagem de notícias (`pages/noticias.php`)
@@ -30,6 +33,7 @@
   - Banco de dados de notícias (JSON ou array)
 
 ### 🔴 **Santiago** (Design e Frontend)
+
 - **Branch:** `feature/santiago-design`
 - **Responsabilidades:**
   - Estilos CSS principais (`assets/css/style.css`)
@@ -45,31 +49,35 @@
 ### Para cada membro:
 
 1. **Clonar o repositório (se ainda não fez):**
+
    ```bash
    git clone https://github.com/JoaoL007/Trabalho-TIC-GRUPO.git
    cd Trabalho-TIC-GRUPO
    ```
 
 2. **Mudar para sua branch:**
+
    ```bash
    # Eduardo:
    git checkout feature/eduardo-navegacao
-   
+
    # Carlos:
    git checkout feature/carlos-noticias
-   
+
    # Santiago:
    git checkout feature/santiago-design
-   
+
    # João:
    git checkout feature/joao-coordenacao
    ```
 
 3. **Trabalhar na sua parte:**
+
    - Fazer as modificações nos arquivos
    - Testar localmente
 
 4. **Fazer commits frequentes:**
+
    ```bash
    git add .
    git commit -m "feat: descrição da mudança"
@@ -83,12 +91,14 @@
 ## 📅 CRONOGRAMA SUGERIDO
 
 ### Semana 1:
+
 - **Eduardo:** Criar navegação básica e header/footer
 - **Carlos:** Estruturar páginas de notícias
 - **Santiago:** CSS básico e layout responsivo
 - **João:** Finalizar página principal e coordenar
 
 ### Semana 2:
+
 - **Eduardo:** Aperfeiçoar navegação e menus
 - **Carlos:** Adicionar conteúdo real de robótica
 - **Santiago:** JavaScript interativo e animações
@@ -118,6 +128,7 @@
 ## 🆘 COMANDOS ÚTEIS
 
 ### Sincronizar com a branch principal:
+
 ```bash
 git checkout main
 git pull origin main
@@ -126,6 +137,7 @@ git merge main
 ```
 
 ### Resolver conflitos:
+
 ```bash
 # Após editar os arquivos com conflito
 git add .
@@ -134,6 +146,7 @@ git push origin sua-branch
 ```
 
 ### Ver status:
+
 ```bash
 git status
 git log --oneline
