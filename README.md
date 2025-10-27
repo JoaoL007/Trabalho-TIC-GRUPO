@@ -33,7 +33,7 @@ Site de notícias focado em robótica, desenvolvido em grupo para o trabalho de 
 │   ├── footer.php       # Rodapé
 │   └── nav.php          # Navegação
 └── data/               # Dados (JSON ou configurações)
-
+````
 ## Como Contribuir
 
 ### 1. Clone o repositório
