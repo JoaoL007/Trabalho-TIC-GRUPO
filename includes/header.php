@@ -1,5 +1,5 @@
 <?php
-// Header do site - será desenvolvido pelo Membro 2
+// Header do site - será desenvolvido por Eduardo Teixeira
 ?>
 <header class="site-header">
     <div class="container">
