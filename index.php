@@ -57,15 +57,6 @@
 </head>
 
 <body>
-    <!-- Header moderno integrado -->
-    <header class="modern-header" style="display: none;">
-        <div class="container">
-            <div class="header-brand">
-                <h1>🤖 RoboNews</h1>
-                <span>Portal de Robótica</span>
-            </div>
-        </div>
-    </header>
     <?php include 'includes/nav.php'; ?>
 
     <!-- Hero Section -->
@@ -153,8 +144,10 @@
 
                     <div class="hero-main-image">
                         <div class="image-glow"></div>
-                        <img src="assets/images/robot-hero.png" alt="Robô futurista representando inovação tecnológica"
-                            class="hero-img">
+                        <div class="hero-img-placeholder">
+                            <i class="fas fa-robot"></i>
+                            <span>RoboNews</span>
+                        </div>
                     </div>
 
                     <div class="tech-stats">
@@ -1162,34 +1155,9 @@
         </div>
     </section>
 
-    <!-- Footer temporariamente desabilitado -->
-    <?php // include 'includes/footer.php'; 
-    ?>
+    <?php include 'includes/footer.php'; ?>
 
-    <!-- Footer moderno integrado -->
-    <footer class="modern-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>🤖 RoboNews</h3>
-                    <p>Seu portal de notícias sobre robótica e tecnologia.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h4>Navegação</h4>
-                        <ul>
-                            <li><a href="#home">Início</a></li>
-                            <li><a href="pages/noticias.php">Notícias</a></li>
-                            <li><a href="pages/sobre.php">Sobre</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 RoboNews. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
+
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
