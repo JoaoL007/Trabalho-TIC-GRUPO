@@ -38,21 +38,21 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "NewsMediaOrganization",
-        "name": "RoboNews",
-        "alternateName": "RoboNews Portal",
-        "url": "http://localhost/Trabalho-TIC-GRUPO/",
-        "logo": "assets/images/logo.png",
-        "description": "Portal de notícias especializado em robótica e tecnologia",
-        "foundingDate": "2025",
-        "sameAs": [
-            "https://facebook.com/robonews",
-            "https://twitter.com/robonews",
-            "https://linkedin.com/company/robonews"
-        ]
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "NewsMediaOrganization",
+            "name": "RoboNews",
+            "alternateName": "RoboNews Portal",
+            "url": "http://localhost/Trabalho-TIC-GRUPO/",
+            "logo": "assets/images/logo.png",
+            "description": "Portal de notícias especializado em robótica e tecnologia",
+            "foundingDate": "2025",
+            "sameAs": [
+                "https://facebook.com/robonews",
+                "https://twitter.com/robonews",
+                "https://linkedin.com/company/robonews"
+            ]
+        }
     </script>
 </head>
 
@@ -1163,7 +1163,8 @@
     </section>
 
     <!-- Footer temporariamente desabilitado -->
-    <?php // include 'includes/footer.php'; ?>
+    <?php // include 'includes/footer.php'; 
+    ?>
 
     <!-- Footer moderno integrado -->
     <footer class="modern-footer">
@@ -1215,116 +1216,116 @@
 
     <!-- Initialize AOS -->
     <script>
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        offset: 50
-    });
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 50
+        });
     </script>
 
     <!-- Newsletter Form Handler -->
     <script>
-    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
+        document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-        const form = this;
-        const submitBtn = form.querySelector('.btn-newsletter');
-        const successDiv = document.getElementById('newsletterSuccess');
+            const form = this;
+            const submitBtn = form.querySelector('.btn-newsletter');
+            const successDiv = document.getElementById('newsletterSuccess');
 
-        // Show loading state
-        submitBtn.classList.add('loading');
+            // Show loading state
+            submitBtn.classList.add('loading');
 
-        try {
-            // Simulate API call (replace with actual implementation)
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            try {
+                // Simulate API call (replace with actual implementation)
+                await new Promise(resolve => setTimeout(resolve, 2000));
 
-            // Hide form and show success message
-            form.style.display = 'none';
-            successDiv.style.display = 'block';
+                // Hide form and show success message
+                form.style.display = 'none';
+                successDiv.style.display = 'block';
 
-            // Track conversion (Google Analytics, Facebook Pixel, etc.)
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'newsletter_signup', {
-                    event_category: 'engagement',
-                    event_label: 'homepage_newsletter'
-                });
+                // Track conversion (Google Analytics, Facebook Pixel, etc.)
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'newsletter_signup', {
+                        event_category: 'engagement',
+                        event_label: 'homepage_newsletter'
+                    });
+                }
+
+            } catch (error) {
+                alert('Erro ao processar inscrição. Tente novamente.');
+            } finally {
+                submitBtn.classList.remove('loading');
             }
-
-        } catch (error) {
-            alert('Erro ao processar inscrição. Tente novamente.');
-        } finally {
-            submitBtn.classList.remove('loading');
-        }
-    });
+        });
     </script>
 
     <!-- Performance and SEO Scripts -->
     <script>
-    // Lazy loading for images
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
+        // Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
             });
-        });
 
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
 
-    // Preload critical resources
-    const preloadLink = document.createElement('link');
-    preloadLink.rel = 'preload';
-    preloadLink.href = 'assets/css/index.css';
-    preloadLink.as = 'style';
-    document.head.appendChild(preloadLink);
+        // Preload critical resources
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.href = 'assets/css/index.css';
+        preloadLink.as = 'style';
+        document.head.appendChild(preloadLink);
     </script>
 
     <!-- Schema.org Structured Data for Articles -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "itemListElement": [{
-                "@type": "Article",
-                "position": 1,
-                "name": "Revolução na IA: Novo Modelo Supera GPT-4",
-                "headline": "Revolução na IA: Novo Modelo Supera GPT-4 e Consegue Raciocínio Científico Avançado",
-                "author": {
-                    "@type": "Person",
-                    "name": "Dr. Carlos Silva"
-                },
-                "datePublished": "2025-10-27",
-                "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "RoboNews",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "assets/images/logo.png"
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": [{
+                    "@type": "Article",
+                    "position": 1,
+                    "name": "Revolução na IA: Novo Modelo Supera GPT-4",
+                    "headline": "Revolução na IA: Novo Modelo Supera GPT-4 e Consegue Raciocínio Científico Avançado",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Dr. Carlos Silva"
+                    },
+                    "datePublished": "2025-10-27",
+                    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e",
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "RoboNews",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "assets/images/logo.png"
+                        }
                     }
-                }
-            },
-            {
-                "@type": "Article",
-                "position": 2,
-                "name": "Robô Cirurgião Realiza Primeira Operação Totalmente Autônoma no Brasil",
-                "author": {
-                    "@type": "Person",
-                    "name": "Equipe RoboNews"
                 },
-                "datePublished": "2025-10-26",
-                "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56"
-            }
-        ]
-    }
+                {
+                    "@type": "Article",
+                    "position": 2,
+                    "name": "Robô Cirurgião Realiza Primeira Operação Totalmente Autônoma no Brasil",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Equipe RoboNews"
+                    },
+                    "datePublished": "2025-10-26",
+                    "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56"
+                }
+            ]
+        }
     </script>
 
 </body>
