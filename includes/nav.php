@@ -4,55 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoboNews - Menu</title>
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <nav class="main-nav">
-                <ul class="nav-menu">
-                    <li><a href="index.php" class="nav-link active">Início</a></li>
-                    <li><a href="noticias.php" class="nav-link">Notícias</a></li>
-                    <li><a href="sobre.php" class="nav-link">Sobre</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            function setActiveLink(clickedLink) {
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                });
-                
-                clickedLink.classList.add('active');
-            }
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    setActiveLink(this);
-                });
-            });
-            function updateActiveStateBasedOnURL() {
-                const currentPath = window.location.pathname;
-                navLinks.forEach(link => {
-                    if (link.getAttribute('href') === currentPath) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-            }
-            
-            // Chama a função para verificar a URL atual
-            updateActiveStateBasedOnURL();
-        });
-    </script>
-</body>
-</html>
-
-<style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -157,3 +109,77 @@
             border-radius: 2px;
         }
     </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.php" class="nav-link active">Início</a></li>
+                    <li><a href="pages/noticias.php" class="nav-link">Notícias</a></li>
+                    <li><a href="pages/sobre.php" class="nav-link">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Função para atualizar o estado ativo baseado na URL
+            function updateActiveStateBasedOnURL() {
+                const currentPath = window.location.pathname;
+                navLinks.forEach(link => {
+                    // Remove a classe 'active' de todos os links
+                    link.classList.remove('active');
+                    
+                    // Verifica se o href do link corresponde ao caminho atual
+                    const linkHref = link.getAttribute('href');
+                    
+                    // Para links que apontam para páginas internas
+                    if (currentPath.includes(linkHref)) {
+                        link.classList.add('active');
+                    }
+                    
+                    // Caso especial para a página inicial
+                    if (currentPath.endsWith('/') || currentPath.endsWith('index.php')) {
+                        if (linkHref === 'index.php') {
+                            link.classList.add('active');
+                        }
+                    }
+                });
+            }
+            
+            // Adiciona evento de clique para cada link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Remove a classe 'active' de todos os links
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Adiciona a classe 'active' ao link clicado
+                    this.classList.add('active');
+                    
+                    // Salva o estado no localStorage para persistência entre páginas
+                    localStorage.setItem('activeNavLink', this.getAttribute('href'));
+                });
+            });
+            
+            // Verifica se há um estado salvo no localStorage
+            const savedActiveLink = localStorage.getItem('activeNavLink');
+            if (savedActiveLink) {
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === savedActiveLink) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            } else {
+                // Se não há estado salvo, atualiza baseado na URL
+                updateActiveStateBasedOnURL();
+            }
+        });
+    </script>
+</body>
+</html>
