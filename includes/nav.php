@@ -12,6 +12,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Cabeçalho */
         .header {
             background: linear-gradient(135deg, #2365b1, #3a84d9);
             padding: 10px 0;
@@ -24,6 +25,13 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
+        }
+
+        /* Menu principal */
+        .main-nav, 
+        .nav-menu, 
+        .nav-menu li {
+            background: transparent;
         }
 
         .nav-menu {
