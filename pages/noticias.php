@@ -1,5 +1,5 @@
 <?php
-// Página de listagem de notícias - Será desenvolvida pelo Membro 3
+// Página de listagem de notícias - Será desenvolvida pelo Carlos
 include '../includes/header.php';
 include '../includes/nav.php';
 ?>
@@ -9,7 +9,7 @@ include '../includes/nav.php';
         <h1>Todas as Notícias de Robótica</h1>
 
         <section class="news-list">
-            <!-- Lista de notícias será implementada pelo Membro 3 -->
+            <!-- Lista de notícias será implementada pelo Carlos -->
             <p>Lista de notícias em desenvolvimento...</p>
         </section>
     </div>
