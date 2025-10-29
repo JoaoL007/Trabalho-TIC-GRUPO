@@ -32,10 +32,12 @@
                     const linkHref = this.getAttribute('href');
                     const currentPath = window.location.pathname;
                     
-                    // Verifica se já está na mesma página
+                    // Verifica se já está na mesma página - se sim, não faz nada
+                    // Deixa o navegador seguir o link normalmente
                     if (currentPath.endsWith(linkHref) || 
-                        currentPath.includes(linkHref) && !currentPath.includes('pages/pages/')) {
-                        e.preventDefault();
+                        (linkHref === 'index.php' && (currentPath.endsWith('/') || currentPath.endsWith('/index.php')))) {
+                        // Não faz nada - deixa o navegador recarregar a página normalmente
+                        return;
                     }
                     
                     setActiveLink(this);
