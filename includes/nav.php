@@ -21,27 +21,43 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
+            
             function setActiveLink(clickedLink) {
                 navLinks.forEach(link => link.classList.remove('active'));
                 clickedLink.classList.add('active');
             }
 
             navLinks.forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function(e) {
+                    const linkHref = this.getAttribute('href');
+                    const currentPath = window.location.pathname;
+                    
+                    // Verifica se já está na mesma página
+                    if (currentPath.endsWith(linkHref) || 
+                        currentPath.includes(linkHref) && !currentPath.includes('pages/pages/')) {
+                        e.preventDefault();
+                    }
+                    
                     setActiveLink(this);
                 });
             });
 
             function updateActiveStateBasedOnURL() {
                 const currentPath = window.location.pathname;
+                
                 navLinks.forEach(link => {
-                    if (link.getAttribute('href') === currentPath) {
+                    const linkHref = link.getAttribute('href');
+                    
+                    // Verifica se o caminho atual corresponde ao link
+                    if (currentPath.endsWith(linkHref) || 
+                        (linkHref === 'index.php' && (currentPath.endsWith('/') || currentPath.endsWith('/index.php')))) {
                         link.classList.add('active');
                     } else {
                         link.classList.remove('active');
                     }
                 });
             }
+            
             updateActiveStateBasedOnURL();
         });
     </script>
