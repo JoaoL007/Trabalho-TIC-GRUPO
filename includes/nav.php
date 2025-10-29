@@ -11,8 +11,8 @@
             <nav class="main-nav">
                 <ul class="nav-menu">
                     <li><a href="index.php" class="nav-link active">Início</a></li>
-                    <li><a href="pages/noticias.php" class="nav-link">Notícias</a></li>
-                    <li><a href="pages/sobre.php" class="nav-link">Sobre</a></li>
+                    <li><a href="noticias.php" class="nav-link">Notícias</a></li>
+                    <li><a href="sobre.php" class="nav-link">Sobre</a></li>
                 </ul>
             </nav>
         </div>
