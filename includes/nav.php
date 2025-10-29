@@ -93,9 +93,9 @@
         <div class="container">
             <nav class="main-nav">
                 <ul class="nav-menu">
-                    <li><a href="/RoboNews/index.php" class="nav-link">Início</a></li>
-                    <li><a href="/RoboNews/pages/noticias.php" class="nav-link">Notícias</a></li>
-                    <li><a href="/RoboNews/pages/sobre.php" class="nav-link">Sobre</a></li>
+                    <li><a href="/Trabalho-TIC-Grupo/index.php" class="nav-link">Início</a></li>
+                    <li><a href="/Trabalho-TIC-Grupo/pages/noticias.php" class="nav-link">Notícias</a></li>
+                    <li><a href="/Trabalho-TIC-Grupo/pages/sobre.php" class="nav-link">Sobre</a></li>
                 </ul>
             </nav>
         </div>
