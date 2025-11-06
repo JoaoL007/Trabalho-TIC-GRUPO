@@ -10,7 +10,10 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
-
+<php>
+<?php include '../includes/header.php'; ?>
+<?php include '../includes/nav.php'; ?>
+</php>
 <body>
     <main class="news-main">
         <!-- Hero Section com Slider -->
