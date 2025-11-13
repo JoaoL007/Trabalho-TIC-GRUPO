@@ -1,5 +1,5 @@
 <?php
-// Página sobre - Será desenvolvida pelo Membro 4
+// Página sobre - Será desenvolvida pelo Santiago
 include '../includes/header.php';
 include '../includes/nav.php';
 ?>
@@ -9,7 +9,7 @@ include '../includes/nav.php';
         <h1>Sobre o RoboNews</h1>
 
         <section class="about-content">
-            <p>Página sobre o projeto será desenvolvida pelo Membro 4...</p>
+            <p>Página sobre o projeto será desenvolvida pelo Santiago...</p>
         </section>
     </div>
 </main>
