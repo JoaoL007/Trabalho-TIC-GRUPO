@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="#2563eb" opacity="0.1"/>
+  
+  <!-- Robot Head -->
+  <rect x="60" y="70" width="80" height="70" rx="8" fill="#1e3a8a" stroke="#2563eb" stroke-width="3"/>
+  
+  <!-- Antenna -->
+  <line x1="100" y1="70" x2="100" y2="50" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="100" cy="45" r="6" fill="#3b82f6"/>
+  
+  <!-- Eyes -->
+  <circle cx="80" cy="95" r="8" fill="#3b82f6"/>
+  <circle cx="120" cy="95" r="8" fill="#3b82f6"/>
+  <circle cx="82" cy="93" r="3" fill="#ffffff"/>
+  <circle cx="122" cy="93" r="3" fill="#ffffff"/>
+  
+  <!-- Mouth Display -->
+  <rect x="75" y="115" width="50" height="15" rx="3" fill="#1e40af"/>
+  <line x1="80" y1="122.5" x2="90" y2="122.5" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+  <line x1="95" y1="122.5" x2="105" y2="122.5" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+  <line x1="110" y1="122.5" x2="120" y2="122.5" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Ears/Side Panels -->
+  <rect x="45" y="85" width="10" height="25" rx="3" fill="#2563eb"/>
+  <rect x="145" y="85" width="10" height="25" rx="3" fill="#2563eb"/>
+  
+  <!-- Body/News Icon -->
+  <rect x="70" y="145" width="60" height="45" rx="5" fill="#1e3a8a" stroke="#2563eb" stroke-width="2"/>
+  
+  <!-- News Lines -->
+  <line x1="80" y1="157" x2="120" y2="157" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="80" y1="167" x2="115" y2="167" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+  <line x1="80" y1="177" x2="110" y2="177" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Accent Dots -->
+  <circle cx="100" cy="155" r="2" fill="#3b82f6" opacity="0.5"/>
+  <circle cx="90" cy="165" r="2" fill="#3b82f6" opacity="0.5"/>
+  <circle cx="110" cy="175" r="2" fill="#3b82f6" opacity="0.5"/>
+</svg>
