@@ -4,7 +4,8 @@
 <header class="site-header">
     <div class="container">
         <div class="logo">
-            <h1>🤖 RoboNews</h1>
+            <img src="assets/images/logo.svg" alt="RoboNews Logo" class="logo-img">
+            <h1>RoboNews</h1>
         </div>
         <div class="header-info">
             <p>Portal de Notícias de Robótica</p>
@@ -31,6 +32,16 @@
 
     .site-header .logo {
         text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .site-header .logo .logo-img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
 
     .site-header .logo h1 {
