@@ -1,1289 +1,1495 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RoboNews - Portal de Notícias de Robótica</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>RoboNews - Portal de Notícias de Robótica e Tecnologia</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --accent-color: #f59e0b;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --gray: #64748b;
+        --border: #e2e8f0;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: var(--dark);
+        overflow-x: hidden;
+        background: #ffffff;
+    }
+
+    /* Top Bar */
+    .top-bar {
+        background: var(--dark);
+        color: white;
+        padding: 0.5rem 0;
+        font-size: 0.875rem;
+    }
+
+    .top-bar-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .top-bar-left {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .top-bar-right {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .top-bar a {
+        color: white;
+        text-decoration: none;
+        opacity: 0.9;
+        transition: opacity 0.3s;
+    }
+
+    .top-bar a:hover {
+        opacity: 1;
+    }
+
+    .social-icon {
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s;
+    }
+
+    .social-icon:hover {
+        background: var(--primary-color);
+    }
+
+    /* Navigation */
+    nav {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    .logo {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+    }
+
+    .logo img {
+        width: 45px;
+        height: 45px;
+        filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.3));
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+        align-items: center;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+        position: relative;
+        padding: 0.5rem 0;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary-color);
+    }
+
+    .nav-links a.active {
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+        width: 100%;
+    }
+
+    .search-box {
+        position: relative;
+    }
+
+    .search-box input {
+        padding: 0.5rem 1rem 0.5rem 2.5rem;
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        font-size: 0.9rem;
+        width: 200px;
+        transition: all 0.3s;
+    }
+
+    .search-box input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        width: 250px;
+    }
+
+    .search-box i {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray);
+    }
+
+    /* Trending Topics Bar */
+    .trending-bar {
+        background: white;
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 0;
+    }
+
+    .trending-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .trending-label {
+        background: var(--accent-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    .trending-topics {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .trending-topics::-webkit-scrollbar {
+        display: none;
+    }
+
+    .trending-topics a {
+        color: var(--dark);
+        text-decoration: none;
+        white-space: nowrap;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .trending-topics a:hover {
+        color: var(--primary-color);
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        padding: 4rem 2rem 3rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+    }
+
+    .hero-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-content {
+        text-align: center;
+        color: white;
+        padding: 2rem 0 3rem;
+    }
+
+    .breaking-badge {
+        display: inline-block;
+        background: var(--accent-color);
+        color: white;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 1.5rem;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.8;
+        }
+    }
+
+    .hero h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 3.25rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 0.875rem 2rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-primary {
+        background: white;
+        color: var(--primary-color);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--dark);
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* News Cards Enhancements */
+    .news-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .news-badge.new {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+    }
+
+    .news-badge.trending {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        color: white;
+    }
+
+    .news-badge.breaking {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        color: white;
+        animation: pulse 2s infinite;
+    }
+
+    .news-card {
+        position: relative;
+    }
+
+    .news-category {
+        display: inline-block;
+        color: #2563eb;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .news-meta {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #e2e8f0;
+        font-size: 0.85rem;
+        color: #64748b;
+    }
+
+    .news-meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .news-meta i {
+        color: #2563eb;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .testimonial-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: relative;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(37, 99, 235, 0.2);
+        border-color: #2563eb;
+    }
+
+    .quote-icon {
+        font-size: 4rem;
+        color: #dbeafe;
+        font-family: Georgia, serif;
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #334155;
+        margin-bottom: 1.5rem;
+        font-style: italic;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .author-avatar {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .author-info h4 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #0f172a;
+        font-weight: 700;
+    }
+
+    .author-info p {
+        margin: 0.2rem 0 0 0;
+        font-size: 0.9rem;
+        color: #64748b;
+    }
+
+    .rating {
+        display: flex;
+        gap: 0.3rem;
+        color: #fbbf24;
+        font-size: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+        .nav-links {
+            position: fixed;
+            top: 73px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 73px);
+            background: white;
+            flex-direction: column;
+            padding: 2rem;
+            gap: 1.5rem;
+            transition: left 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .nav-links.active {
+            left: 0;
+        }
+
+        .mobile-menu-toggle {
+            display: block;
+        }
+
+        .search-box {
+            width: 100%;
+        }
+
+        .search-box input {
+            width: 150px;
+        }
+
+        .trending-topics {
+            gap: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+    }
+    </style>
 </head>
 
 <body>
-    <?php include 'includes/header.php'; ?>
-    <?php include 'includes/nav.php'; ?>
-
-    <main class="main-content">
-        <section class="hero">
-            <div class="container">
-                <h1>🤖 Bem-vindos ao RoboNews</h1>
-                <p>Seu portal de notícias sobre robótica e tecnologia</p>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span><i class="fas fa-clock"></i>
+                    <?php date_default_timezone_set('Europe/Lisbon'); echo date('l, d F Y'); ?></span>
+                <span><i class="fas fa-bolt"></i> Notícias em tempo real</span>
             </div>
-        </section>
+            <div class="top-bar-right">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
 
-        <section class="featured-news">
-            <div class="container">
-                <h2>Notícias em Destaque</h2>
-                <div class="news-grid">
-                    <!-- Notícias serão adicionadas aqui pela equipe -->
-                    <article class="news-card">
-                        <h3>Primeira notícia sobre robótica</h3>
-                        <p>Descrição da notícia...</p>
-                        <a href="pages/artigo.php?id=1">Leia mais</a>
-                    </article>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.php" class="logo">
+                <img src="assets/images/logo-simple.svg" alt="RoboNews Logo">
+                <span>RoboNews</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.php" class="active">Início</a></li>
+                <li><a href="pages/noticias.php">Notícias</a></li>
+                <li><a href="pages/categorias.php">Categorias</a></li>
+                <li><a href="pages/sobre.php">Sobre</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Pesquisar notícias...">
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-                    <article class="news-card">
-                        <h3>Inovações em IA</h3>
-                        <p>Últimas novidades em inteligência artificial...</p>
-                        <a href="pages/artigo.php?id=2">Leia mais</a>
-                    </article>
+    <!-- Trending Topics Bar -->
+    <div class="trending-bar">
+        <div class="trending-container">
+            <div class="trending-label">
+                <i class="fas fa-fire"></i> Em Alta
+            </div>
+            <div class="trending-topics">
+                <a href="#">IA Generativa</a>
+                <a href="#">Robôs Colaborativos</a>
+                <a href="#">Veículos Autónomos</a>
+                <a href="#">Automação Industrial</a>
+                <a href="#">Drones Inteligentes</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="breaking-badge">
+                    <i class="fas fa-bolt"></i> Breaking News
+                </span>
+                <h1>O Futuro da Robótica Começa Aqui</h1>
+                <p>Cobertura completa sobre robótica, inteligência artificial e automação. Mantenha-se atualizado com as
+                    últimas inovações tecnológicas.</p>
+                <div class="cta-buttons">
+                    <a href="pages/noticias.php" class="btn btn-primary">
+                        <i class="fas fa-newspaper"></i> Explorar Notícias
+                    </a>
+                    <a href="#featured" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i> Ver Destaques
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- Featured News Section -->
+    <section class="featured-section">
+        <div class="container">
+            <h2 class="section-title">📰 Notícias em Destaque</h2>
+
+            <div class="news-grid">
+                <article class="news-card" data-aos="fade-up">
+                    <span class="news-badge new">NOVO</span>
+                    <div class="news-icon">🤖</div>
+                    <span class="news-category">Inteligência Artificial</span>
+                    <h3>Revolução na IA</h3>
+                    <p>Novo modelo supera GPT-4 em testes de raciocínio científico avançado.</p>
+                    <div class="news-meta">
+                        <span><i class="fas fa-clock"></i> Há 2 horas</span>
+                        <span><i class="fas fa-eye"></i> 1.2K</span>
+                    </div>
+                    <a href="pages/artigo.php?id=1" class="read-more">Leia mais →</a>
+                </article>
+
+                <article class="news-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="news-badge trending">EM ALTA</span>
+                    <div class="news-icon">🏥</div>
+                    <span class="news-category">Saúde & Robótica</span>
+                    <h3>Robô Cirurgião</h3>
+                    <p>Primeira operação totalmente autônoma realizada com sucesso no Brasil.</p>
+                    <div class="news-meta">
+                        <span><i class="fas fa-clock"></i> Há 5 horas</span>
+                        <span><i class="fas fa-eye"></i> 3.4K</span>
+                    </div>
+                    <a href="pages/artigo.php?id=2" class="read-more">Leia mais →</a>
+                </article>
+
+                <article class="news-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="news-badge breaking">EXCLUSIVO</span>
+                    <div class="news-icon">🏭</div>
+                    <span class="news-category">Indústria 4.0</span>
+                    <h3>Tesla Gigafactory</h3>
+                    <p>Anunciada primeira fábrica 100% robotizada da América Latina.</p>
+                    <div class="news-meta">
+                        <span><i class="fas fa-clock"></i> Há 1 dia</span>
+                        <span><i class="fas fa-eye"></i> 5.7K</span>
+                    </div>
+                    <a href="pages/artigo.php?id=3" class="read-more">Leia mais →</a>
+                </article>
+
+                <article class="news-card" data-aos="fade-up">
+                    <span class="news-badge new">NOVO</span>
+                    <div class="news-icon">🧠</div>
+                    <span class="news-category">Neurociência</span>
+                    <h3>Chip Neural</h3>
+                    <p>Tecnologia permite controle mental de próteses robóticas complexas.</p>
+                    <div class="news-meta">
+                        <span><i class="fas fa-clock"></i> Há 3 horas</span>
+                        <span><i class="fas fa-eye"></i> 2.1K</span>
+                    </div>
+                    <a href="pages/artigo.php?id=4" class="read-more">Leia mais →</a>
+                </article>
+
+                <article class="news-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="news-icon">🏠</div>
+                    <span class="news-category">Consumidor</span>
+                    <h3>Robôs Domésticos</h3>
+                    <p>Chegam ao Brasil por preço acessível com IA integrada.</p>
+                    <div class="news-meta">
+                        <span><i class="fas fa-clock"></i> Há 1 dia</span>
+                        <span><i class="fas fa-eye"></i> 4.3K</span>
+                    </div>
+                    <a href="pages/artigo.php?id=5" class="read-more">Leia mais →</a>
+                </article>
+
+                <article class="news-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="news-badge trending">EM ALTA</span>
+                    <div class="news-icon">🚀</div>
+                    <span class="news-category">Espaço</span>
+                    <h3>SpaceX Robôs</h3>
+                    <p>Testes de robôs autônomos para missões em Marte avançam.</p>
+                    <div class="news-meta">
+                        <span><i class="fas fa-clock"></i> Há 2 dias</span>
+                        <span><i class="fas fa-eye"></i> 6.8K</span>
+                    </div>
+                    <a href="pages/artigo.php?id=6" class="read-more">Leia mais →</a>
+                </article>
+            </div>
+
+            <div class="view-all">
+                <a href="pages/noticias.php" class="btn btn-primary">
+                    Ver Todas as Notícias
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">🔍 Explore por Categorias</h2>
+
+            <div class="categories-grid">
+                <a href="pages/categoria.php?cat=ia" class="category-card">
+                    <div class="category-icon">🧠</div>
+                    <h3>Inteligência Artificial</h3>
+                    <p>324 artigos</p>
+                </a>
+
+                <a href="pages/categoria.php?cat=robotica" class="category-card">
+                    <div class="category-icon">🤖</div>
+                    <h3>Robótica</h3>
+                    <p>189 artigos</p>
+                </a>
+
+                <a href="pages/categoria.php?cat=iot" class="category-card">
+                    <div class="category-icon">📡</div>
+                    <h3>IoT & Conectividade</h3>
+                    <p>156 artigos</p>
+                </a>
+
+                <a href="pages/categoria.php?cat=industria" class="category-card">
+                    <div class="category-icon">🏭</div>
+                    <h3>Indústria 4.0</h3>
+                    <p>267 artigos</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">💬 O Que Dizem Nossos Leitores</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="zoom-in">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">
+                        O RoboNews é minha fonte principal para me manter atualizado sobre inovações em robótica.
+                        Conteúdo de qualidade excepcional!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍💼</div>
+                        <div class="author-info">
+                            <h4>Carlos Silva</h4>
+                            <p>Engenheiro de Automação</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">
+                        Excelente portal! Artigos bem escritos e sempre atualizados com as últimas tendências em IA e
+                        robótica.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍🔬</div>
+                        <div class="author-info">
+                            <h4>Ana Costa</h4>
+                            <p>Pesquisadora em IA</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">
+                        Conteúdo técnico acessível e bem explicado. Perfeito para quem trabalha ou estuda tecnologia!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍🎓</div>
+                        <div class="author-info">
+                            <h4>Miguel Santos</h4>
+                            <p>Estudante de Engenharia</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-header">
+                <h2 class="section-title" style="color: white;">📊 RoboNews em Números</h2>
+                <p class="stats-subtitle">Impactando a comunidade tecnológica com informação de qualidade</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="fade-up">
+                    <div class="stat-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="1250">0</div>
+                        <div class="stat-label">Artigos Publicados</div>
+                        <div class="stat-growth">
+                            <i class="fas fa-arrow-up"></i> +120 este mês
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="87500">0</div>
+                        <div class="stat-label">Leitores Mensais</div>
+                        <div class="stat-growth">
+                            <i class="fas fa-arrow-up"></i> +15% crescimento
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="45">0</div>
+                        <div class="stat-label">Especialistas</div>
+                        <div class="stat-growth">
+                            <i class="fas fa-check-circle"></i> Equipa certificada
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="8">0</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                        <div class="stat-growth">
+                            <i class="fas fa-star"></i> Referência em PT
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-extra">
+                <div class="extra-stat">
+                    <i class="fas fa-trophy"></i>
+                    <span><strong>12</strong> Prémios de Jornalismo</span>
+                </div>
+                <div class="extra-stat">
+                    <i class="fas fa-globe"></i>
+                    <span><strong>50+</strong> Países Alcançados</span>
+                </div>
+                <div class="extra-stat">
+                    <i class="fas fa-rocket"></i>
+                    <span><strong>1M+</strong> Visualizações/Ano</span>
+                </div>
+            </div>
+        </div>
+    </section>
     </main>
 
-
-    <script src="assets/js/main.js"></script>
-</body>
-
-</html>
-
-<!-- Hero Section -->
-<section class="hero-banner" id="home">
-    <div class="hero-background">
-        <div class="hero-particles"></div>
-        <div class="hero-gradient-overlay"></div>
-    </div>
-
-    <div class="hero-content">
-        <div class="hero-text" data-aos="fade-right">
-            <div class="hero-badge">
-                <i class="fas fa-rocket"></i>
-                <span>Portal #1 em Robótica no Brasil</span>
-            </div>
-
-            <h1 class="hero-title">
-                <span class="gradient-text">RoboNews</span>
-                <br><span class="typing-effect">O Futuro da Tecnologia</span>
-            </h1>
-
-            <p class="hero-subtitle">
-                Descubra as últimas inovações em <strong>robótica</strong>,
-                <strong>inteligência artificial</strong> e <strong>tecnologias emergentes</strong>.
-                Conecte-se com o futuro através de conteúdo exclusivo e análises especializadas.
-            </p>
-
-            <div class="hero-features">
-                <div class="feature-item">
-                    <i class="fas fa-clock"></i>
-                    <span>Atualizações Diárias</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-users"></i>
-                    <span>Comunidade Ativa</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-award"></i>
-                    <span>Conteúdo Especializado</span>
-                </div>
-            </div>
-
-            <div class="hero-buttons">
-                <a href="#featured" class="btn btn-primary btn-large smooth-scroll">
-                    <i class="fas fa-newspaper"></i>
-                    <span>Explorar Notícias</span>
-                </a>
-                <a href="#newsletter" class="btn btn-outline btn-large smooth-scroll">
-                    <i class="fas fa-bell"></i>
-                    <span>Receber Atualizações</span>
-                </a>
-            </div>
-
-            <div class="hero-social-proof">
-                <p class="social-proof-text">Mais de <strong>50.000</strong> profissionais já confiam no RoboNews
-                </p>
-                <div class="social-proof-avatars">
-                    <div class="avatar-group">
-                        <div class="avatar avatar-1"></div>
-                        <div class="avatar avatar-2"></div>
-                        <div class="avatar avatar-3"></div>
-                        <div class="avatar avatar-4"></div>
-                        <div class="avatar avatar-more">+50K</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-visual" data-aos="fade-left">
-            <div class="hero-image-container">
-                <div class="floating-elements">
-                    <div class="floating-card card-ai">
-                        <i class="fas fa-brain"></i>
-                        <span>IA Avançada</span>
-                    </div>
-                    <div class="floating-card card-robot">
-                        <i class="fas fa-robot"></i>
-                        <span>Robótica</span>
-                    </div>
-                    <div class="floating-card card-iot">
-                        <i class="fas fa-wifi"></i>
-                        <span>IoT</span>
-                    </div>
-                </div>
-
-                <div class="hero-main-image">
-                    <div class="image-glow"></div>
-                    <div class="hero-img-placeholder">
-                        <i class="fas fa-robot"></i>
-                        <span>RoboNews</span>
-                    </div>
-                </div>
-
-                <div class="tech-stats">
-                    <div class="stat-bubble stat-1">
-                        <div class="stat-value">98%</div>
-                        <div class="stat-label">Precisão IA</div>
-                    </div>
-                    <div class="stat-bubble stat-2">
-                        <div class="stat-value">24/7</div>
-                        <div class="stat-label">Monitoramento</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="scroll-indicator">
-        <div class="scroll-text">Role para explorar</div>
-        <div class="scroll-arrow">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </div>
-</section>
-
-<!-- Breaking News Ticker -->
-<section class="breaking-news">
-    <div class="container">
-        <div class="breaking-news-content">
-            <div class="breaking-label">
-                <i class="fas fa-bolt"></i>
-                <span>ÚLTIMAS</span>
-            </div>
-            <div class="breaking-ticker">
-                <div class="ticker-content" id="tickerContent">
-                    <span>🤖 Nova IA da Google supera GPT-4 em testes de raciocínio • </span>
-                    <span>🏭 Tesla anuncia fábrica totalmente robotizada no Brasil • </span>
-                    <span>🧠 Chip neural permite controle mental de próteses robóticas • </span>
-                    <span>🚀 SpaceX testa robôs autônomos para missões em Marte • </span>
-                    <span>🔬 MIT desenvolve robô que aprende como uma criança • </span>
-                    <span>💡 IA resolve problemas matemáticos complexos em segundos • </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Stats Section -->
-<section class="stats-section" id="stats">
-    <div class="container">
-        <div class="stats-header" data-aos="fade-up">
-            <h2 class="section-title">RoboNews em Números</h2>
-            <p class="section-subtitle">Nossa comunidade cresce a cada dia, conectando profissionais e entusiastas
-                da tecnologia</p>
-        </div>
-
-        <div class="stats-grid" data-aos="fade-up" data-aos-delay="200">
-            <div class="stat-item" data-counter="1250">
-                <div class="stat-icon">
-                    <i class="fas fa-newspaper"></i>
-                </div>
-                <div class="stat-number" data-target="1250">0</div>
-                <div class="stat-label">Artigos Publicados</div>
-                <div class="stat-growth">
-                    <i class="fas fa-arrow-up"></i> +15% este mês
-                </div>
-            </div>
-
-            <div class="stat-item" data-counter="87500">
-                <div class="stat-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="stat-number" data-target="87500">0</div>
-                <div class="stat-label">Leitores Mensais</div>
-                <div class="stat-growth">
-                    <i class="fas fa-arrow-up"></i> +28% este mês
-                </div>
-            </div>
-
-            <div class="stat-item" data-counter="45">
-                <div class="stat-icon">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <div class="stat-number" data-target="45">0</div>
-                <div class="stat-label">Especialistas</div>
-                <div class="stat-growth">
-                    <i class="fas fa-arrow-up"></i> +5 novos
-                </div>
-            </div>
-
-            <div class="stat-item" data-counter="8">
-                <div class="stat-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <div class="stat-number" data-target="8">0</div>
-                <div class="stat-label">Anos de Experiência</div>
-                <div class="stat-growth">
-                    <i class="fas fa-star"></i> Líder no setor
-                </div>
-            </div>
-        </div>
-
-        <!-- Achievement Badges -->
-        <div class="achievements-section" data-aos="fade-up" data-aos-delay="400">
-            <div class="achievements-grid">
-                <div class="achievement-badge">
-                    <i class="fas fa-medal"></i>
-                    <span>Portal #1 em Robótica</span>
-                </div>
-                <div class="achievement-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Conteúdo Verificado</span>
-                </div>
-                <div class="achievement-badge">
-                    <i class="fas fa-globe-americas"></i>
-                    <span>Alcance Internacional</span>
-                </div>
-                <div class="achievement-badge">
-                    <i class="fas fa-clock"></i>
-                    <span>Atualizações 24/7</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Featured News -->
-<section class="featured-section" id="featured">
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-badge">
-                <i class="fas fa-fire"></i>
-                <span>Em Destaque</span>
-            </div>
-            <h2 class="section-title">Notícias Mais Relevantes</h2>
-            <p class="section-subtitle">Descobertas revolucionárias e tendências que estão moldando o futuro da
-                tecnologia</p>
-
-            <div class="section-filters">
-                <button class="filter-btn active" data-filter="all">
-                    <i class="fas fa-globe"></i> Todas
-                </button>
-                <button class="filter-btn" data-filter="ia">
-                    <i class="fas fa-brain"></i> IA
-                </button>
-                <button class="filter-btn" data-filter="robotica">
-                    <i class="fas fa-robot"></i> Robótica
-                </button>
-                <button class="filter-btn" data-filter="industria">
-                    <i class="fas fa-industry"></i> Indústria
-                </button>
-            </div>
-        </div>
-
-        <!-- Featured Article Hero -->
-        <div class="featured-hero" data-aos="fade-up" data-aos-delay="200">
-            <article class="hero-article">
-                <div class="article-image-container">
-                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop"
-                        alt="IA revolucionária em laboratório" class="article-image">
-                    <div class="article-overlay">
-                        <div class="article-category-badge trending">
-                            <i class="fas fa-trending-up"></i> Trending
-                        </div>
-                        <div class="reading-time">
-                            <i class="fas fa-clock"></i> 7 min
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-content">
-                    <div class="article-meta-top">
-                        <span class="category-tag ai">Inteligência Artificial</span>
-                        <span class="article-date">
-                            <i class="fas fa-calendar-alt"></i> 27 Out 2025
-                        </span>
-                    </div>
-
-                    <h2 class="article-title">
-                        Revolução na IA: Novo Modelo Supera GPT-4 e Consegue Raciocínio Científico Avançado
-                    </h2>
-
-                    <p class="article-excerpt">
-                        Pesquisadores da MIT e Stanford desenvolvem sistema de inteligência artificial capaz de
-                        conduzir
-                        experimentos científicos independentemente, descobrir novos compostos químicos e formular
-                        hipóteses
-                        complexas com precisão superior a 94% em testes laboratoriais.
-                    </p>
-
-                    <div class="article-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>94% de precisão em testes</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-flask"></i>
-                            <span>Experimentos autônomos</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-rocket"></i>
-                            <span>Descobertas em tempo real</span>
-                        </div>
-                    </div>
-
-                    <div class="article-actions">
-                        <a href="pages/artigo.php?id=1" class="read-more-btn primary">
-                            <span>Leia a Análise Completa</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-
-                        <div class="article-engagement">
-                            <button class="engagement-btn like-btn">
-                                <i class="far fa-heart"></i>
-                                <span>1.2K</span>
-                            </button>
-                            <button class="engagement-btn comment-btn">
-                                <i class="far fa-comment"></i>
-                                <span>89</span>
-                            </button>
-                            <button class="engagement-btn share-btn">
-                                <i class="fas fa-share"></i>
-                                <span>Share</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="author-info">
-                        <div class="author-avatar">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face"
-                                alt="Dr. Carlos Silva">
-                        </div>
-                        <div class="author-details">
-                            <span class="author-name">Dr. Carlos Silva</span>
-                            <span class="author-title">Especialista em IA • PhD MIT</span>
-                        </div>
-                        <button class="follow-btn">
-                            <i class="fas fa-plus"></i> Seguir
-                        </button>
-                    </div>
-                </div>
-            </article>
-        </div>
-
-        <!-- Secondary Articles Grid -->
-        <div class="featured-grid" data-aos="fade-up" data-aos-delay="400">
-            <article class="news-card featured" data-category="robotica">
-                <div class="card-header">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop"
-                            alt="Robô cirurgião em operação">
-                        <div class="card-overlay">
-                            <div class="card-category">Medicina</div>
-                            <div class="popularity-indicator">
-                                <i class="fas fa-fire"></i> Popular
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <div class="card-meta">
-                        <span class="category-tag medical">Robótica Médica</span>
-                        <span class="read-time">
-                            <i class="fas fa-clock"></i> 4 min
-                        </span>
-                    </div>
-
-                    <h3 class="card-title">Robô Cirurgião Realiza Primeira Operação Totalmente Autônoma no Brasil
-                    </h3>
-
-                    <p class="card-excerpt">
-                        Hospital Albert Einstein marca história com cirurgia cardíaca realizada integralmente por
-                        IA,
-                        com precisão 300% superior aos métodos tradicionais.
-                    </p>
-
-                    <div class="card-stats">
-                        <span class="stat-item">
-                            <i class="fas fa-eye"></i> 12.5K views
-                        </span>
-                        <span class="stat-item">
-                            <i class="fas fa-heart"></i> 890
-                        </span>
-                        <span class="card-date">
-                            <i class="fas fa-calendar"></i> 26 Out
-                        </span>
-                    </div>
-
-                    <a href="pages/artigo.php?id=2" class="card-link">
-                        <span>Leia mais</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </a>
-                </div>
-            </article>
-
-            <article class="news-card" data-category="industria">
-                <div class="card-header">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=400&h=250&fit=crop"
-                            alt="Fábrica automatizada">
-                        <div class="card-overlay">
-                            <div class="card-category">Indústria</div>
-                            <div class="live-indicator">
-                                <div class="live-dot"></div> Ao vivo
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <div class="card-meta">
-                        <span class="category-tag industry">Automação Industrial</span>
-                        <span class="read-time">
-                            <i class="fas fa-clock"></i> 6 min
-                        </span>
-                    </div>
-
-                    <h3 class="card-title">Tesla Anuncia Primeira Gigafactory 100% Robotizada da América Latina</h3>
-
-                    <p class="card-excerpt">
-                        Investimento de US$ 2 bilhões criará 15 mil empregos indiretos e revolucionará a produção
-                        automotiva na região com zero intervenção humana.
-                    </p>
-
-                    <div class="card-stats">
-                        <span class="stat-item">
-                            <i class="fas fa-eye"></i> 8.2K views
-                        </span>
-                        <span class="stat-item">
-                            <i class="fas fa-comment"></i> 234
-                        </span>
-                        <span class="card-date">
-                            <i class="fas fa-calendar"></i> 25 Out
-                        </span>
-                    </div>
-
-                    <a href="pages/artigo.php?id=3" class="card-link">
-                        <span>Leia mais</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </a>
-                </div>
-            </article>
-
-            <article class="news-card" data-category="ia">
-                <div class="card-header">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop"
-                            alt="Cérebro artificial">
-                        <div class="card-overlay">
-                            <div class="card-category">Neurociência</div>
-                            <div class="exclusive-badge">
-                                <i class="fas fa-star"></i> Exclusivo
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <div class="card-meta">
-                        <span class="category-tag neuro">Neurociência</span>
-                        <span class="read-time">
-                            <i class="fas fa-clock"></i> 8 min
-                        </span>
-                    </div>
-
-                    <h3 class="card-title">Chip Neural Permite Controle Mental de Próteses Robóticas Complexas</h3>
-
-                    <p class="card-excerpt">
-                        Breakthrough da Neuralink permite que pacientes controlem braços robóticos com precisão
-                        de movimentos nunca vista, revolucionando tratamentos neurológicos.
-                    </p>
-
-                    <div class="card-stats">
-                        <span class="stat-item">
-                            <i class="fas fa-eye"></i> 15.7K views
-                        </span>
-                        <span class="stat-item">
-                            <i class="fas fa-bookmark"></i> 1.1K
-                        </span>
-                        <span class="card-date">
-                            <i class="fas fa-calendar"></i> 24 Out
-                        </span>
-                    </div>
-
-                    <a href="pages/artigo.php?id=4" class="card-link">
-                        <span>Leia mais</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </a>
-                </div>
-            </article>
-
-            <article class="news-card" data-category="robotica">
-                <div class="card-header">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1518624612206-dc516529044e?w=400&h=250&fit=crop"
-                            alt="Robôs domésticos">
-                        <div class="card-overlay">
-                            <div class="card-category">Casa Inteligente</div>
-                            <div class="trending-badge">
-                                <i class="fas fa-trending-up"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <div class="card-meta">
-                        <span class="category-tag home">Smart Home</span>
-                        <span class="read-time">
-                            <i class="fas fa-clock"></i> 3 min
-                        </span>
-                    </div>
-
-                    <h3 class="card-title">Robôs Domésticos Inteligentes Chegam às Casas Brasileiras por R$ 2.999
-                    </h3>
-
-                    <p class="card-excerpt">
-                        Xiaomi lança no Brasil robô multifuncional capaz de limpeza, segurança e assistência
-                        pessoal com IA integrada e preço acessível.
-                    </p>
-
-                    <div class="card-stats">
-                        <span class="stat-item">
-                            <i class="fas fa-eye"></i> 22.1K views
-                        </span>
-                        <span class="stat-item">
-                            <i class="fas fa-shopping-cart"></i> 450
-                        </span>
-                        <span class="card-date">
-                            <i class="fas fa-calendar"></i> 23 Out
-                        </span>
-                    </div>
-
-                    <a href="pages/artigo.php?id=5" class="card-link">
-                        <span>Leia mais</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </a>
-                </div>
-            </article>
-        </div>
-
-        <!-- Load More -->
-        <div class="load-more-container" data-aos="fade-up" data-aos-delay="600">
-            <button class="load-more-btn">
-                <i class="fas fa-plus"></i>
-                <span>Carregar Mais Notícias</span>
-            </button>
-            <p class="load-more-info">Descubra mais de <strong>1.250</strong> artigos em nosso arquivo</p>
-        </div>
-    </div>
-</section>
-
-<!-- Categories & Topics Section -->
-<section class="topics-section" id="topics">
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Explore por Tópicos</h2>
-            <p class="section-subtitle">Mergulhe profundamente nos temas que definem o futuro da tecnologia</p>
-        </div>
-
-        <!-- Main Categories -->
-        <div class="categories-showcase" data-aos="fade-up" data-aos-delay="200">
-            <div class="category-card-large ai-category">
-                <div class="category-background">
-                    <div class="category-pattern"></div>
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop"
-                        alt="Inteligência Artificial">
-                </div>
-                <div class="category-content">
-                    <div class="category-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div class="category-info">
-                        <h3 class="category-title">Inteligência Artificial</h3>
-                        <p class="category-description">
-                            Descobertas em machine learning, redes neurais e aplicações revolucionárias da IA
-                        </p>
-                        <div class="category-stats">
-                            <span class="stat">
-                                <i class="fas fa-newspaper"></i> 324 artigos
-                            </span>
-                            <span class="stat">
-                                <i class="fas fa-users"></i> 12.5K seguidores
-                            </span>
-                            <span class="stat trending">
-                                <i class="fas fa-trending-up"></i> +18% esta semana
-                            </span>
-                        </div>
-                        <div class="category-topics">
-                            <span class="topic-tag">GPT & LLMs</span>
-                            <span class="topic-tag">Computer Vision</span>
-                            <span class="topic-tag">AutoML</span>
-                            <span class="topic-tag">Ethics in AI</span>
-                        </div>
-                    </div>
-                    <a href="pages/categoria.php?cat=ia" class="category-link">
-                        <span>Explorar IA</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="category-grid-secondary">
-                <div class="category-card robotics-category">
-                    <div class="card-header">
-                        <div class="category-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="category-badge hot">
-                            <i class="fas fa-fire"></i> Hot
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="category-title">Robótica Avançada</h4>
-                        <p class="category-description">
-                            Humanoides, robôs industriais, drones autônomos e automação inteligente
-                        </p>
-                        <div class="category-highlights">
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Boston Dynamics</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Robôs Colaborativos</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Automação Industrial</span>
-                            </div>
-                        </div>
-                        <div class="category-stats-mini">
-                            <span>189 artigos</span> • <span class="trending">+12% views</span>
-                        </div>
-                        <a href="pages/categoria.php?cat=robotica" class="btn-explore">
-                            Explorar <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="category-card iot-category">
-                    <div class="card-header">
-                        <div class="category-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <div class="category-badge new">
-                            <i class="fas fa-sparkles"></i> Novo
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="category-title">IoT & Conectividade</h4>
-                        <p class="category-description">
-                            Internet das Coisas, sensores inteligentes, edge computing e cidades conectadas
-                        </p>
-                        <div class="category-highlights">
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Smart Cities</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Edge Computing</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>5G & Beyond</span>
-                            </div>
-                        </div>
-                        <div class="category-stats-mini">
-                            <span>156 artigos</span> • <span class="growing">+25% interesse</span>
-                        </div>
-                        <a href="pages/categoria.php?cat=iot" class="btn-explore">
-                            Explorar <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="category-card industry-category">
-                    <div class="card-header">
-                        <div class="category-icon">
-                            <i class="fas fa-industry"></i>
-                        </div>
-                        <div class="category-badge premium">
-                            <i class="fas fa-crown"></i> Premium
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="category-title">Indústria 4.0</h4>
-                        <p class="category-description">
-                            Manufatura inteligente, digital twins, blockchain industrial e sustentabilidade
-                        </p>
-                        <div class="category-highlights">
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Digital Twins</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Sustentabilidade</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Blockchain</span>
-                            </div>
-                        </div>
-                        <div class="category-stats-mini">
-                            <span>267 artigos</span> • <span class="premium">Premium content</span>
-                        </div>
-                        <a href="pages/categoria.php?cat=industria" class="btn-explore">
-                            Explorar <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="category-card healthcare-category">
-                    <div class="card-header">
-                        <div class="category-icon">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <div class="category-badge breakthrough">
-                            <i class="fas fa-rocket"></i> Breakthrough
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="category-title">HealthTech & BioRobótica</h4>
-                        <p class="category-description">
-                            Robôs cirúrgicos, diagnóstico por IA, telemedicina e biotecnologia avançada
-                        </p>
-                        <div class="category-highlights">
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Cirurgia Robótica</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Diagnóstico IA</span>
-                            </div>
-                            <div class="highlight">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Próteses Inteligentes</span>
-                            </div>
-                        </div>
-                        <div class="category-stats-mini">
-                            <span>142 artigos</span> • <span class="breakthrough">Breakthrough tech</span>
-                        </div>
-                        <a href="pages/categoria.php?cat=saude" class="btn-explore">
-                            Explorar <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Trending Topics -->
-        <div class="trending-topics" data-aos="fade-up" data-aos-delay="400">
-            <h3 class="trending-title">
-                <i class="fas fa-fire"></i> Trending Topics
-            </h3>
-            <div class="trending-tags">
-                <a href="pages/tag.php?tag=chatgpt" class="trending-tag">
-                    <span class="tag-name">ChatGPT Evolution</span>
-                    <span class="tag-count">+2.3K</span>
-                </a>
-                <a href="pages/tag.php?tag=tesla-bot" class="trending-tag">
-                    <span class="tag-name">Tesla Optimus</span>
-                    <span class="tag-count">+1.8K</span>
-                </a>
-                <a href="pages/tag.php?tag=quantum-computing" class="trending-tag">
-                    <span class="tag-name">Quantum Computing</span>
-                    <span class="tag-count">+1.5K</span>
-                </a>
-                <a href="pages/tag.php?tag=autonomous-vehicles" class="trending-tag">
-                    <span class="tag-name">Veículos Autônomos</span>
-                    <span class="tag-count">+1.2K</span>
-                </a>
-                <a href="pages/tag.php?tag=metaverse" class="trending-tag">
-                    <span class="tag-name">Metaverse & VR</span>
-                    <span class="tag-count">+987</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Expert Insights Section -->
-<section class="experts-section" id="experts">
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Insights de Especialistas</h2>
-            <p class="section-subtitle">Análises exclusivas dos maiores experts em tecnologia do Brasil e do mundo
-            </p>
-        </div>
-
-        <div class="experts-grid" data-aos="fade-up" data-aos-delay="200">
-            <div class="expert-card featured-expert">
-                <div class="expert-background">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=face"
-                        alt="Dr. Ricardo Santos">
-                </div>
-                <div class="expert-content">
-                    <div class="expert-badge">
-                        <i class="fas fa-star"></i> Expert Featured
-                    </div>
-                    <div class="expert-info">
-                        <h3 class="expert-name">Dr. Ricardo Santos</h3>
-                        <p class="expert-title">PhD em IA • Ex-Google Brain • Fundador TechAI</p>
-                        <div class="expert-credentials">
-                            <span class="credential"><i class="fas fa-graduation-cap"></i> MIT</span>
-                            <span class="credential"><i class="fas fa-trophy"></i> 15 prêmios</span>
-                            <span class="credential"><i class="fas fa-book"></i> 50+ papers</span>
-                        </div>
-                    </div>
-                    <div class="expert-latest">
-                        <h4 class="latest-title">Última Análise:</h4>
-                        <p class="latest-content">
-                            "A convergência entre IA generativa e robótica autônoma criará um novo paradigma
-                            industrial nos próximos 18 meses, especialmente no Brasil."
-                        </p>
-                        <a href="pages/expert.php?id=1" class="expert-link">
-                            Ler análise completa <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="expert-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">2.5M</span>
-                            <span class="stat-label">Seguidores</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">127</span>
-                            <span class="stat-label">Artigos</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="experts-list">
-                <div class="expert-mini-card">
-                    <div class="expert-avatar">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b643?w=80&h=80&fit=crop&crop=face"
-                            alt="Dra. Ana Costa">
-                    </div>
-                    <div class="expert-details">
-                        <h4 class="expert-name">Dra. Ana Costa</h4>
-                        <p class="expert-role">Robótica Médica • USP</p>
-                        <p class="expert-insight">"Robôs cirúrgicos vão reduzir em 70% o tempo de recuperação até
-                            2026"</p>
-                    </div>
-                    <button class="follow-expert-btn">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                </div>
-
-                <div class="expert-mini-card">
-                    <div class="expert-avatar">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face"
-                            alt="Prof. João Silva">
-                    </div>
-                    <div class="expert-details">
-                        <h4 class="expert-name">Prof. João Silva</h4>
-                        <p class="expert-role">IoT & Edge Computing • UNICAMP</p>
-                        <p class="expert-insight">"Edge AI será fundamental para a próxima geração de smart cities"
-                        </p>
-                    </div>
-                    <button class="follow-expert-btn">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                </div>
-
-                <div class="expert-mini-card">
-                    <div class="expert-avatar">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face"
-                            alt="Dra. Maria Oliveira">
-                    </div>
-                    <div class="expert-details">
-                        <h4 class="expert-name">Dra. Maria Oliveira</h4>
-                        <p class="expert-role">Indústria 4.0 • Siemens Brasil</p>
-                        <p class="expert-insight">"Digital twins revolucionarão a manufatura brasileira nos próximos
-                            2 anos"</p>
-                    </div>
-                    <button class="follow-expert-btn">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Newsletter & Community Section -->
-<section class="newsletter-section" id="newsletter">
-    <div class="container">
-        <div class="newsletter-wrapper">
-            <!-- Left Side - Newsletter -->
-            <div class="newsletter-content" data-aos="fade-right">
-                <div class="newsletter-header">
-                    <div class="newsletter-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="newsletter-badge">
-                        <span>🚀 Gratuito</span>
-                    </div>
-                </div>
-
-                <div class="newsletter-main">
-                    <h2 class="newsletter-title">
-                        Fique Sempre <span class="gradient-text">Atualizado</span>
-                    </h2>
-                    <p class="newsletter-subtitle">
-                        Receba <strong>semanalmente</strong> as descobertas mais importantes em
-                        robótica, IA e tecnologia. Mais de <strong>50.000</strong> profissionais
-                        já confiam em nosso conteúdo.
-                    </p>
-
-                    <div class="newsletter-benefits">
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Resumos exclusivos das principais novidades</span>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Análises de especialistas renomados</span>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Alertas de descobertas revolucionárias</span>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Acesso antecipado a webinars e eventos</span>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="newsletter-form" id="newsletterForm" action="includes/newsletter.php" method="POST">
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <i class="fas fa-envelope input-icon"></i>
-                            <input type="email" name="email" id="newsletterEmail"
-                                placeholder="Seu melhor e-mail profissional" required class="newsletter-input">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <i class="fas fa-user input-icon"></i>
-                            <input type="text" name="name" id="newsletterName" placeholder="Seu nome completo"
-                                required class="newsletter-input">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <select name="interest" id="newsletterInterest" class="newsletter-select" required>
-                            <option value="">Área de maior interesse</option>
-                            <option value="ia">Inteligência Artificial</option>
-                            <option value="robotica">Robótica</option>
-                            <option value="iot">IoT & Conectividade</option>
-                            <option value="industria">Indústria 4.0</option>
-                            <option value="saude">HealthTech</option>
-                            <option value="geral">Tecnologia em Geral</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-newsletter">
-                        <span class="btn-text">
-                            <i class="fas fa-paper-plane"></i>
-                            Inscrever-se Gratuitamente
-                        </span>
-                        <div class="btn-loading">
-                            <i class="fas fa-spinner fa-spin"></i>
-                            Processando...
-                        </div>
-                    </button>
-
-                    <div class="newsletter-privacy">
-                        <p>
-                            <i class="fas fa-shield-alt"></i>
-                            Seus dados estão seguros. Enviamos apenas 1 email por semana e você pode cancelar a
-                            qualquer momento.
-                        </p>
-                    </div>
-                </form>
-
-                <div class="newsletter-success" id="newsletterSuccess" style="display: none;">
-                    <div class="success-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3>Bem-vindo(a) à comunidade RoboNews!</h3>
-                    <p>Você receberá nossa primeira newsletter em breve. Verifique sua caixa de entrada.</p>
-                </div>
-            </div>
-
-            <!-- Right Side - Community Stats -->
-            <div class="community-stats" data-aos="fade-left" data-aos-delay="200">
-                <div class="stats-header">
-                    <h3>Nossa Comunidade</h3>
-                    <p>Junte-se a milhares de profissionais</p>
-                </div>
-
-                <div class="community-numbers">
-                    <div class="number-item">
-                        <div class="number-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="number-content">
-                            <span class="number" data-target="52847">0</span>
-                            <span class="label">Subscribers Ativos</span>
-                        </div>
-                    </div>
-
-                    <div class="number-item">
-                        <div class="number-icon">
-                            <i class="fas fa-envelope-open-text"></i>
-                        </div>
-                        <div class="number-content">
-                            <span class="number">97%</span>
-                            <span class="label">Taxa de Abertura</span>
-                        </div>
-                    </div>
-
-                    <div class="number-item">
-                        <div class="number-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="number-content">
-                            <span class="number">4.9</span>
-                            <span class="label">Avaliação Média</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonials-preview">
-                    <h4>O que dizem sobre nós:</h4>
-                    <div class="testimonial-item">
-                        <div class="testimonial-avatar">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face"
-                                alt="Carlos Silva">
-                        </div>
-                        <div class="testimonial-content">
-                            <p>"Conteúdo de altíssima qualidade. Mudou minha visão sobre IA."</p>
-                            <span>Carlos Silva, CTO Startup</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <div class="testimonial-avatar">
-                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b643?w=50&h=50&fit=crop&crop=face"
-                                alt="Ana Santos">
-                        </div>
-                        <div class="testimonial-content">
-                            <p>"Essencial para quem trabalha com tecnologia emergente."</p>
-                            <span>Ana Santos, Eng. Robótica</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="social-proof-companies">
-                    <h4>Profissionais dessas empresas já assinam:</h4>
-                    <div class="companies-logos">
-                        <div class="company-logo">Google</div>
-                        <div class="company-logo">Microsoft</div>
-                        <div class="company-logo">Tesla</div>
-                        <div class="company-logo">Petrobras</div>
-                        <div class="company-logo">USP</div>
-                        <div class="company-logo">+200 outras</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Call-to-Action Final -->
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content" data-aos="zoom-in">
-            <div class="cta-background">
-                <div class="cta-particles"></div>
-            </div>
-
-            <div class="cta-text">
-                <h2 class="cta-title">
-                    Pronto para <span class="gradient-text">Revolucionar</span> sua Visão Tecnológica?
-                </h2>
-                <p class="cta-subtitle">
-                    Junte-se à maior comunidade de profissionais de tecnologia do Brasil.
-                    Transforme conhecimento em inovação.
-                </p>
-            </div>
-
-            <div class="cta-actions">
-                <a href="pages/noticias.php" class="btn btn-primary btn-large">
-                    <i class="fas fa-rocket"></i>
-                    <span>Começar Agora</span>
-                </a>
-                <a href="pages/sobre.php" class="btn btn-outline btn-large">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Saiba Mais</span>
-                </a>
-            </div>
-
-            <div class="cta-guarantee">
-                <p>
-                    <i class="fas fa-shield-check"></i>
-                    <strong>100% Gratuito</strong> • Sem spam • Cancele quando quiser
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<?php include 'includes/footer.php'; ?>
-
-
-
-<!-- Back to Top Button -->
-<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
-    <i class="fas fa-chevron-up"></i>
-</button>
-
-<!-- Loading Screen -->
-<div class="loading-screen" id="loadingScreen">
-    <div class="loading-content">
-        <div class="loading-logo">
-            <i class="fas fa-robot"></i>
-            <span class="gradient-text">RoboNews</span>
-        </div>
-        <div class="loading-spinner">
-            <div class="spinner"></div>
-        </div>
-        <p class="loading-text">Carregando o futuro da tecnologia...</p>
-    </div>
-</div>
-
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="assets/js/main.js"></script>
-
-<!-- Initialize AOS -->
-<script>
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        offset: 50
-    });
-</script>
-
-<!-- Newsletter Form Handler -->
-<script>
-    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        const form = this;
-        const submitBtn = form.querySelector('.btn-newsletter');
-        const successDiv = document.getElementById('newsletterSuccess');
-
-        // Show loading state
-        submitBtn.classList.add('loading');
-
-        try {
-            // Simulate API call (replace with actual implementation)
-            await new Promise(resolve => setTimeout(resolve, 2000));
-
-            // Hide form and show success message
-            form.style.display = 'none';
-            successDiv.style.display = 'block';
-
-            // Track conversion (Google Analytics, Facebook Pixel, etc.)
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'newsletter_signup', {
-                    event_category: 'engagement',
-                    event_label: 'homepage_newsletter'
-                });
-            }
-
-        } catch (error) {
-            alert('Erro ao processar inscrição. Tente novamente.');
-        } finally {
-            submitBtn.classList.remove('loading');
+    <?php include 'includes/footer.php'; ?>
+
+    <style>
+    /* Landing Page Specific Styles */
+    .hero-section {
+        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+        color: white;
+        padding: 100px 20px 80px;
+        text-align: center;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 800;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .gradient-text {
+        color: white;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 32px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: white;
+        color: #1e3a8a;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+        background: #f0f9ff;
+        color: #1e40af;
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        backdrop-filter: blur(10px);
+    }
+
+    .btn-outline:hover {
+        background: white;
+        color: #1e3a8a;
+        border-color: white;
+    }
+
+    .featured-section {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    .featured-section .section-title {
+        color: white;
+    }
+
+    .categories-section {
+        padding: 80px 20px;
+    }
+
+    .stats-section {
+        padding: 100px 20px;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stats-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .stats-section .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .stats-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .stats-subtitle {
+        color: #94a3b8;
+        font-size: 1.1rem;
+        margin-top: 1rem;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: #0f172a;
+        font-weight: 800;
+    }
+
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .news-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border-left: 5px solid #2563eb;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    .news-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 35px rgba(37, 99, 235, 0.3);
+        border-left-color: #1e40af;
+    }
+
+    .news-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .news-card h3 {
+        color: #0f172a;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .news-card p {
+        color: #334155;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+    }
+
+    .read-more {
+        color: #1e40af;
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .read-more:hover {
+        color: #2563eb;
+        gap: 10px;
+    }
+
+    .view-all {
+        text-align: center;
+    }
+
+    .categories-section {
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    }
+
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .category-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        text-align: center;
+        text-decoration: none;
+        color: #0f172a;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 2px solid transparent;
+    }
+
+    .category-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 35px rgba(37, 99, 235, 0.25);
+        border-color: #2563eb;
+        background: linear-gradient(135deg, #ffffff 0%, #dbeafe 100%);
+    }
+
+    .category-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.15));
+    }
+
+    .category-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: #0f172a;
+        font-weight: 700;
+    }
+
+    .category-card p {
+        color: #334155;
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+    }
+
+    .stat-card {
+        background: linear-gradient(145deg, rgba(30, 58, 138, 0.8) 0%, rgba(37, 99, 235, 0.6) 100%);
+        backdrop-filter: blur(20px);
+        color: white;
+        padding: 2.5rem 2rem;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.4s;
+    }
+
+    .stat-card:hover::before {
+        opacity: 1;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 20px 60px rgba(37, 99, 235, 0.5);
+        border-color: rgba(255, 255, 255, 0.3);
+        background: linear-gradient(145deg, rgba(37, 99, 235, 0.9) 0%, rgba(59, 130, 246, 0.8) 100%);
+    }
+
+    .stat-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: white;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .stat-card:hover .stat-icon {
+        transform: scale(1.1) rotate(5deg);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    }
+
+    .stat-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .stat-number {
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 0.75rem;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(180deg, #ffffff 0%, #e0f2fe 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .stat-label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        margin-bottom: 0.75rem;
+        opacity: 0.95;
+    }
+
+    .stat-growth {
+        font-size: 0.9rem;
+        color: #bfdbfe;
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        font-weight: 500;
+    }
+
+    .stat-growth i {
+        color: #6ee7b7;
+        margin-right: 0.25rem;
+    }
+
+    .stats-extra {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+        margin-top: 4rem;
+        padding-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .extra-stat {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: white;
+        font-size: 1rem;
+        padding: 1rem 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .extra-stat:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-3px);
+    }
+
+    .extra-stat i {
+        font-size: 1.5rem;
+        color: #60a5fa;
+    }
+
+    .extra-stat strong {
+        color: #3b82f6;
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.5rem;
         }
-    });
-</script>
 
-<!-- Performance and SEO Scripts -->
-<script>
-    // Lazy loading for images
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
 
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .news-grid,
+        .categories-grid,
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+
+    <script>
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
     }
 
-    // Preload critical resources
-    const preloadLink = document.createElement('link');
-    preloadLink.rel = 'preload';
-    preloadLink.href = 'assets/css/index.css';
-    preloadLink.as = 'style';
-    document.head.appendChild(preloadLink);
-</script>
-
-<!-- Schema.org Structured Data for Articles -->
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "itemListElement": [{
-                "@type": "Article",
-                "position": 1,
-                "name": "Revolução na IA: Novo Modelo Supera GPT-4",
-                "headline": "Revolução na IA: Novo Modelo Supera GPT-4 e Consegue Raciocínio Científico Avançado",
-                "author": {
-                    "@type": "Person",
-                    "name": "Dr. Carlos Silva"
-                },
-                "datePublished": "2025-10-27",
-                "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "RoboNews",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "assets/images/logo.png"
-                    }
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
                 }
-            },
-            {
-                "@type": "Article",
-                "position": 2,
-                "name": "Robô Cirurgião Realiza Primeira Operação Totalmente Autônoma no Brasil",
-                "author": {
-                    "@type": "Person",
-                    "name": "Equipe RoboNews"
-                },
-                "datePublished": "2025-10-26",
-                "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56"
             }
-        ]
+        });
+    });
+
+    // Scroll animations (simple fade-in effect)
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('[data-aos]').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+    });
+
+    // Sticky navbar effect
+    let lastScroll = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 100) {
+            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+        }
+
+        lastScroll = currentScroll;
+    });
+
+    // Search functionality
+    const searchInput = document.querySelector('.search-box input');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && searchInput.value.trim()) {
+                window.location.href = `pages/noticias.php?search=${encodeURIComponent(searchInput.value)}`;
+            }
+        });
     }
-</script>
+
+    // Counter animation for stats
+    function animateCounter(element, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                clearInterval(timer);
+                if (target >= 1000) {
+                    element.textContent = target >= 1000000 ? (target / 1000000).toFixed(1) + 'M' :
+                        target >= 1000 ? (target / 1000).toFixed(1) + 'K' : target;
+                } else {
+                    element.textContent = Math.ceil(target);
+                }
+            } else {
+                if (target >= 1000) {
+                    element.textContent = start >= 1000000 ? (start / 1000000).toFixed(1) + 'M' :
+                        start >= 1000 ? (start / 1000).toFixed(1) + 'K' : Math.ceil(start);
+                } else {
+                    element.textContent = Math.ceil(start);
+                }
+            }
+        }, 16);
+    }
+
+    // Trigger counter animation when stats section is visible
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                statNumbers.forEach(el => {
+                    const target = parseInt(el.getAttribute('data-count'));
+                    animateCounter(el, target);
+                });
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
+    </script>
 
 </body>
 
