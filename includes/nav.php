@@ -97,18 +97,6 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <nav class="main-nav">
-                <ul class="nav-menu">
-                    <li><a href="/Trabalho-TIC-Grupo/index.php" class="nav-link">Início</a></li>
-                    <li><a href="/Trabalho-TIC-Grupo/pages/noticias.php" class="nav-link">Notícias</a></li>
-                    <li><a href="/Trabalho-TIC-Grupo/pages/sobre.php" class="nav-link">Sobre</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
