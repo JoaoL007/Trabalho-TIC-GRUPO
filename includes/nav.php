@@ -129,8 +129,8 @@
             </a>
             <ul class="nav-menu">
                 <li><a href="index.php">Início</a></li>
-                <li><a href="pages/noticias.php">Notícias</a></li>
-                <li><a href="pages/sobre.php">Sobre</a></li>
+                <li><a href="noticias.php">Notícias</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
             </ul>
         </div>
     </div>
