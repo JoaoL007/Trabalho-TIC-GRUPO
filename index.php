@@ -290,12 +290,9 @@
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
+            0%, 100% {
                 opacity: 1;
             }
-
             50% {
                 opacity: 0.8;
             }
@@ -391,6 +388,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            z-index: 2;
         }
 
         .news-badge.new {
@@ -441,6 +439,31 @@
 
         .news-meta i {
             color: #2563eb;
+        }
+
+        /* Container da imagem - REDUZIDO */
+        .news-image-container {
+            position: relative;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 160px; /* Reduzido de 200px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        }
+
+        /* Imagem da notícia */
+        .news-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover .news-image {
+            transform: scale(1.05);
         }
 
         /* Testimonials Section */
@@ -570,473 +593,13 @@
             .hero p {
                 font-size: 1rem;
             }
+
+            .news-image-container {
+                height: 140px;
+            }
         }
-    </style>
-</head>
 
-<body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="top-bar-container">
-            <div class="top-bar-left">
-                <span><i class="fas fa-clock"></i>
-                    <?php date_default_timezone_set('Europe/Lisbon');
-                    echo date('l, d F Y'); ?></span>
-                <span><i class="fas fa-bolt"></i> Notícias em tempo real</span>
-            </div>
-            <div class="top-bar-right">
-                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="index.php" class="logo">
-                <img src="assets/images/logo-simple.svg" alt="RoboNews Logo">
-                <span>RoboNews</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.php" class="active">Início</a></li>
-                <li><a href="pages/noticias.php">Notícias</a></li>
-                <li><a href="pages/categorias.php">Categorias</a></li>
-                <li><a href="pages/sobre.php">Sobre</a></li>
-            </ul>
-            <div class="nav-right">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Pesquisar notícias...">
-                </div>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Trending Topics Bar -->
-    <div class="trending-bar">
-        <div class="trending-container">
-            <div class="trending-label">
-                <i class="fas fa-fire"></i> Em Alta
-            </div>
-            <div class="trending-topics">
-                <a href="#">IA Generativa</a>
-                <a href="#">Robôs Colaborativos</a>
-                <a href="#">Veículos Autónomos</a>
-                <a href="#">Automação Industrial</a>
-                <a href="#">Drones Inteligentes</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <span class="breaking-badge">
-                    <i class="fas fa-bolt"></i> Breaking News
-                </span>
-                <h1>O Futuro da Robótica Começa Aqui</h1>
-                <p>Cobertura completa sobre robótica, inteligência artificial e automação. Mantenha-se atualizado com as
-                    últimas inovações tecnológicas.</p>
-                <div class="cta-buttons">
-                    <a href="pages/noticias.php" class="btn btn-primary">
-                        <i class="fas fa-newspaper"></i> Explorar Notícias
-                    </a>
-                    <a href="#featured" class="btn btn-secondary">
-                        <i class="fas fa-play-circle"></i> Ver Destaques
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured News Section -->
-    <section class="featured-section">
-        <div class="container">
-            <h2 class="section-title">📰 Notícias em Destaque</h2>
-
-            <div class="news-grid">
-                <article class="news-card" data-aos="fade-up">
-                    <span class="news-badge new">NOVO</span>
-                    <div class="news-icon">🤖</div>
-                    <span class="news-category">Inteligência Artificial</span>
-                    <h3>Revolução na IA</h3>
-                    <p>Novo modelo supera GPT-4 em testes de raciocínio científico avançado.</p>
-                    <div class="news-meta">
-                        <span><i class="fas fa-clock"></i> Há 2 horas</span>
-                        <span><i class="fas fa-eye"></i> 1.2K</span>
-                    </div>
-                    <a href="pages/artigo.php?id=1" class="read-more">Leia mais →</a>
-                </article>
-
-                <article class="news-card" data-aos="fade-up" data-aos-delay="100">
-                    <span class="news-badge trending">EM ALTA</span>
-                    <div class="news-icon">🏥</div>
-                    <span class="news-category">Saúde & Robótica</span>
-                    <h3>Robô Cirurgião</h3>
-                    <p>Primeira operação totalmente autônoma realizada com sucesso no Brasil.</p>
-                    <div class="news-meta">
-                        <span><i class="fas fa-clock"></i> Há 5 horas</span>
-                        <span><i class="fas fa-eye"></i> 3.4K</span>
-                    </div>
-                    <a href="pages/artigo.php?id=2" class="read-more">Leia mais →</a>
-                </article>
-
-                <article class="news-card" data-aos="fade-up" data-aos-delay="200">
-                    <span class="news-badge breaking">EXCLUSIVO</span>
-                    <div class="news-icon">🏭</div>
-                    <span class="news-category">Indústria 4.0</span>
-                    <h3>Tesla Gigafactory</h3>
-                    <p>Anunciada primeira fábrica 100% robotizada da América Latina.</p>
-                    <div class="news-meta">
-                        <span><i class="fas fa-clock"></i> Há 1 dia</span>
-                        <span><i class="fas fa-eye"></i> 5.7K</span>
-                    </div>
-                    <a href="pages/artigo.php?id=3" class="read-more">Leia mais →</a>
-                </article>
-
-                <article class="news-card" data-aos="fade-up">
-                    <span class="news-badge new">NOVO</span>
-                    <div class="news-icon">🧠</div>
-                    <span class="news-category">Neurociência</span>
-                    <h3>Chip Neural</h3>
-                    <p>Tecnologia permite controle mental de próteses robóticas complexas.</p>
-                    <div class="news-meta">
-                        <span><i class="fas fa-clock"></i> Há 3 horas</span>
-                        <span><i class="fas fa-eye"></i> 2.1K</span>
-                    </div>
-                    <a href="pages/artigo.php?id=4" class="read-more">Leia mais →</a>
-                </article>
-
-                <article class="news-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="news-icon">🏠</div>
-                    <span class="news-category">Consumidor</span>
-                    <h3>Robôs Domésticos</h3>
-                    <p>Chegam ao Brasil por preço acessível com IA integrada.</p>
-                    <div class="news-meta">
-                        <span><i class="fas fa-clock"></i> Há 1 dia</span>
-                        <span><i class="fas fa-eye"></i> 4.3K</span>
-                    </div>
-                    <a href="pages/artigo.php?id=5" class="read-more">Leia mais →</a>
-                </article>
-
-                <article class="news-card" data-aos="fade-up" data-aos-delay="200">
-                    <span class="news-badge trending">EM ALTA</span>
-                    <div class="news-icon">🚀</div>
-                    <span class="news-category">Espaço</span>
-                    <h3>SpaceX Robôs</h3>
-                    <p>Testes de robôs autônomos para missões em Marte avançam.</p>
-                    <div class="news-meta">
-                        <span><i class="fas fa-clock"></i> Há 2 dias</span>
-                        <span><i class="fas fa-eye"></i> 6.8K</span>
-                    </div>
-                    <a href="pages/artigo.php?id=6" class="read-more">Leia mais →</a>
-                </article>
-            </div>
-
-            <div class="view-all">
-                <a href="pages/noticias.php" class="btn btn-primary">
-                    Ver Todas as Notícias
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section class="categories-section">
-        <div class="container">
-            <h2 class="section-title">🔍 Explore por Categorias</h2>
-
-            <div class="categories-grid">
-                <a href="pages/categoria.php?cat=ia" class="category-card">
-                    <div class="category-icon">🧠</div>
-                    <h3>Inteligência Artificial</h3>
-                    <p>324 artigos</p>
-                </a>
-
-                <a href="pages/categoria.php?cat=robotica" class="category-card">
-                    <div class="category-icon">🤖</div>
-                    <h3>Robótica</h3>
-                    <p>189 artigos</p>
-                </a>
-
-                <a href="pages/categoria.php?cat=iot" class="category-card">
-                    <div class="category-icon">📡</div>
-                    <h3>IoT & Conectividade</h3>
-                    <p>156 artigos</p>
-                </a>
-
-                <a href="pages/categoria.php?cat=industria" class="category-card">
-                    <div class="category-icon">🏭</div>
-                    <h3>Indústria 4.0</h3>
-                    <p>267 artigos</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <div class="container">
-            <h2 class="section-title">💬 O Que Dizem Nossos Leitores</h2>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card" data-aos="zoom-in">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">
-                        O RoboNews é minha fonte principal para me manter atualizado sobre inovações em robótica.
-                        Conteúdo de qualidade excepcional!
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👨‍💼</div>
-                        <div class="author-info">
-                            <h4>Carlos Silva</h4>
-                            <p>Engenheiro de Automação</p>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-
-                <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">
-                        Excelente portal! Artigos bem escritos e sempre atualizados com as últimas tendências em IA e
-                        robótica.
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👩‍🔬</div>
-                        <div class="author-info">
-                            <h4>Ana Costa</h4>
-                            <p>Pesquisadora em IA</p>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-
-                <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">
-                        Conteúdo técnico acessível e bem explicado. Perfeito para quem trabalha ou estuda tecnologia!
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👨‍🎓</div>
-                        <div class="author-info">
-                            <h4>Miguel Santos</h4>
-                            <p>Estudante de Engenharia</p>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-header">
-                <h2 class="section-title" style="color: white;">📊 RoboNews em Números</h2>
-                <p class="stats-subtitle">Impactando a comunidade tecnológica com informação de qualidade</p>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-card" data-aos="fade-up">
-                    <div class="stat-icon">
-                        <i class="fas fa-newspaper"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number" data-count="1250">0</div>
-                        <div class="stat-label">Artigos Publicados</div>
-                        <div class="stat-growth">
-                            <i class="fas fa-arrow-up"></i> +120 este mês
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number" data-count="87500">0</div>
-                        <div class="stat-label">Leitores Mensais</div>
-                        <div class="stat-growth">
-                            <i class="fas fa-arrow-up"></i> +15% crescimento
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number" data-count="45">0</div>
-                        <div class="stat-label">Especialistas</div>
-                        <div class="stat-growth">
-                            <i class="fas fa-check-circle"></i> Equipa certificada
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number" data-count="8">0</div>
-                        <div class="stat-label">Anos de Experiência</div>
-                        <div class="stat-growth">
-                            <i class="fas fa-star"></i> Referência em PT
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stats-extra">
-                <div class="extra-stat">
-                    <i class="fas fa-trophy"></i>
-                    <span><strong>12</strong> Prémios de Jornalismo</span>
-                </div>
-                <div class="extra-stat">
-                    <i class="fas fa-globe"></i>
-                    <span><strong>50+</strong> Países Alcançados</span>
-                </div>
-                <div class="extra-stat">
-                    <i class="fas fa-rocket"></i>
-                    <span><strong>1M+</strong> Visualizações/Ano</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    </main>
-
-    <?php include 'includes/footer.php'; ?>
-
-    <style>
         /* Landing Page Specific Styles */
-        .hero-section {
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
-            color: white;
-            padding: 100px 20px 80px;
-            text-align: center;
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .gradient-text {
-            color: white;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.95);
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #1e3a8a;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
-            background: #f0f9ff;
-            color: #1e40af;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: #1e3a8a;
-            border-color: white;
-        }
-
         .featured-section {
             padding: 80px 20px;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -1093,21 +656,24 @@
             font-weight: 800;
         }
 
+        /* News Grid - 4 COLUNAS */
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr); /* 4 colunas fixas */
+            gap: 1.5rem;
             margin-bottom: 3rem;
         }
 
+        /* News Card - REDUZIDO */
         .news-card {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem; /* Reduzido de 2rem */
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             border-left: 5px solid #2563eb;
             border-top: 1px solid #e2e8f0;
+            height: fit-content; /* Ajusta altura ao conteúdo */
         }
 
         .news-card:hover {
@@ -1116,24 +682,20 @@
             border-left-color: #1e40af;
         }
 
-        .news-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
-        }
-
         .news-card h3 {
             color: #0f172a;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: 0.75rem; /* Reduzido */
+            font-size: 1.25rem; /* Reduzido de 1.5rem */
             font-weight: 700;
+            line-height: 1.3;
         }
 
         .news-card p {
             color: #334155;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            margin-bottom: 1rem; /* Reduzido */
             font-weight: 500;
+            font-size: 0.9rem; /* Reduzido */
         }
 
         .read-more {
@@ -1144,6 +706,7 @@
             display: inline-flex;
             align-items: center;
             gap: 5px;
+            font-size: 0.9rem; /* Reduzido */
         }
 
         .read-more:hover {
@@ -1343,26 +906,326 @@
             font-size: 1.2rem;
         }
 
+        @media (max-width: 1200px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+            }
+        }
+
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
             .section-title {
                 font-size: 2rem;
             }
 
-            .news-grid,
+            .news-grid {
+                grid-template-columns: 1fr; /* 1 coluna em mobile */
+            }
+
             .categories-grid,
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+
+            .news-image-container {
+                height: 140px;
+            }
         }
     </style>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span><i class="fas fa-clock"></i>
+                    <script>
+                        document.write(new Date().toLocaleDateString('pt-BR', { 
+                            weekday: 'long', 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        }));
+                    </script>
+                </span>
+                <span><i class="fas fa-bolt"></i> Notícias em tempo real</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.php" class="logo">
+                <img src="assets/images/logo-simple.svg" alt="RoboNews Logo">
+                <span>RoboNews</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.php" class="active">Início</a></li>
+                <li><a href="pages/noticias.php">Notícias</a></li>
+                <li><a href="pages/categorias.php">Categorias</a></li>
+                <li><a href="pages/sobre.php">Sobre</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Pesquisar notícias...">
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Trending Topics Bar -->
+    <div class="trending-bar">
+        <div class="trending-container">
+            <div class="trending-label">
+                <i class="fas fa-fire"></i> Em Alta
+            </div>
+            <div class="trending-topics">
+                <a href="#">IA Generativa</a>
+                <a href="#">Robôs Colaborativos</a>
+                <a href="#">Veículos Autónomos</a>
+                <a href="#">Automação Industrial</a>
+                <a href="#">Drones Inteligentes</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="breaking-badge">
+                    <i class="fas fa-bolt"></i> Breaking News
+                </span>
+                <h1>O Futuro da Robótica Começa Aqui</h1>
+                <p>Cobertura completa sobre robótica, inteligência artificial e automação. Mantenha-se atualizado com as
+                    últimas inovações tecnológicas.</p>
+                <div class="cta-buttons">
+                    <a href="pages/noticias.php" class="btn btn-primary">
+                        <i class="fas fa-newspaper"></i> Explorar Notícias
+                    </a>
+                    <a href="#featured" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i> Ver Destaques
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured News Section -->
+    <section class="featured-section" id="featured">
+        <div class="container">
+            <h2 class="section-title">📰 Notícias em Destaque</h2>
+
+            <div class="news-grid" id="news-grid-container">
+                <div class="loading" style="text-align: center; padding: 2rem; color: #94a3b8;">
+                    <i class="fas fa-spinner fa-spin"></i> Carregando notícias...
+                </div>
+            </div>
+
+            <div class="view-all">
+                <a href="pages/noticias.php" class="btn btn-primary">
+                    Ver Todas as Notícias
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">🔍 Explore por Categorias</h2>
+
+            <div class="categories-grid">
+                <a href="pages/categoria.php?cat=ia" class="category-card">
+                    <div class="category-icon">🧠</div>
+                    <h3>Inteligência Artificial</h3>
+                    <p>324 artigos</p>
+                </a>
+
+                <a href="pages/categoria.php?cat=robotica" class="category-card">
+                    <div class="category-icon">🤖</div>
+                    <h3>Robótica</h3>
+                    <p>189 artigos</p>
+                </a>
+
+                <a href="pages/categoria.php?cat=iot" class="category-card">
+                    <div class="category-icon">📡</div>
+                    <h3>IoT & Conectividade</h3>
+                    <p>156 artigos</p>
+                </a>
+
+                <a href="pages/categoria.php?cat=industria" class="category-card">
+                    <div class="category-icon">🏭</div>
+                    <h3>Indústria 4.0</h3>
+                    <p>267 artigos</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">💬 O Que Dizem Nossos Leitores</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="zoom-in">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">
+                        O RoboNews é minha fonte principal para me manter atualizado sobre inovações em robótica.
+                        Conteúdo de qualidade excepcional!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍💼</div>
+                        <div class="author-info">
+                            <h4>Carlos Silva</h4>
+                            <p>Engenheiro de Automação</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">
+                        Excelente portal! Artigos bem escritos e sempre atualizados com as últimas tendências em IA e
+                        robótica.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍🔬</div>
+                        <div class="author-info">
+                            <h4>Ana Costa</h4>
+                            <p>Pesquisadora em IA</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">
+                        Conteúdo técnico acessível e bem explicado. Perfeito para quem trabalha ou estuda tecnologia!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍🎓</div>
+                        <div class="author-info">
+                            <h4>Miguel Santos</h4>
+                            <p>Estudante de Engenharia</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-header">
+                <h2 class="section-title" style="color: white;">📊 RoboNews em Números</h2>
+                <p class="stats-subtitle">Impactando a comunidade tecnológica com informação de qualidade</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="fade-up">
+                    <div class="stat-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="1250">0</div>
+                        <div class="stat-label">Artigos Publicados</div>
+                        <div class="stat-growth">
+                            <i class="fas fa-arrow-up"></i> +120 este mês
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="87500">0</div>
+                        <div class="stat-label">Leitores Mensais</div>
+                        <div class="stat-growth">
+                            <i class="fas fa-arrow-up"></i> +15% crescimento
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="45">0</div>
+                        <div class="stat-label">Especialistas</div>
+                        <div class="stat-growth">
+                            <i class="fas fa-check-circle"></i> Equipa certificada
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="8">0</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                        <div class="stat-growth">
+                            <i class="fas fa-star"></i> Referência em PT
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-extra">
+                <div class="extra-stat">
+                    <i class="fas fa-trophy"></i>
+                    <span><strong>12</strong> Prémios de Jornalismo</span>
+                </div>
+                <div class="extra-stat">
+                    <i class="fas fa-globe"></i>
+                    <span><strong>50+</strong> Países Alcançados</span>
+                </div>
+                <div class="extra-stat">
+                    <i class="fas fa-rocket"></i>
+                    <span><strong>1M+</strong> Visualizações/Ano</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
         // Mobile Menu Toggle
@@ -1490,8 +1353,126 @@
         if (statsSection) {
             statsObserver.observe(statsSection);
         }
+
+        // Função para carregar e exibir as notícias do JSON
+        async function carregarNoticias() {
+            try {
+                // Carrega o arquivo JSON
+                const response = await fetch('assets/database/noticias.json');
+                const data = await response.json();
+                
+                // Filtra apenas notícias publicadas e ordena por data (mais recentes primeiro)
+                const noticiasPublicadas = data.noticias
+                    .filter(noticia => noticia.publicado)
+                    .sort((a, b) => new Date(b.publicado_em) - new Date(a.publicado_em))
+                    .slice(0, 4); // MUDADO: Pega apenas 4 notícias
+
+                // Container onde as notícias serão inseridas
+                const newsGrid = document.querySelector('.news-grid');
+                
+                if (newsGrid && noticiasPublicadas.length > 0) {
+                    newsGrid.innerHTML = ''; // Limpa as notícias de exemplo
+                    
+                    // Cria os cards de notícias dinamicamente
+                    noticiasPublicadas.forEach((noticia, index) => {
+                        const newsCard = criarCardNoticia(noticia, index);
+                        newsGrid.appendChild(newsCard);
+                    });
+                }
+            } catch (error) {
+                console.error('Erro ao carregar notícias:', error);
+                const newsGrid = document.querySelector('.news-grid');
+                if (newsGrid) {
+                    newsGrid.innerHTML = '<div style="text-align: center; padding: 2rem; color: #ef4444;">Erro ao carregar notícias. Verifique o arquivo noticias.json</div>';
+                }
+            }
+        }
+
+        // Função para criar o HTML de cada card de notícia - CORRIGIDA
+        function criarCardNoticia(noticia, index) {
+            const article = document.createElement('article');
+            article.className = 'news-card';
+            article.setAttribute('data-aos', 'fade-up');
+            
+            if (index === 1) {
+                article.setAttribute('data-aos-delay', '100');
+            } else if (index === 2) {
+                article.setAttribute('data-aos-delay', '200');
+            } else if (index === 3) {
+                article.setAttribute('data-aos-delay', '300');
+            }
+
+            const badge = determinarBadge(noticia.publicado_em);
+            const badgeHTML = badge ? `<span class="news-badge ${badge.class}">${badge.text}</span>` : '';
+            const tempoDecorrido = formatarTempoDecorrido(noticia.publicado_em);
+
+            // CORREÇÃO: Usar APENAS as imagens do JSON - SEM FALLBACK DE ÍCONE
+            let imagemHTML = '';
+            if (noticia.imagem_url) {
+                imagemHTML = `
+                    <div class="news-image-container">
+                        <img src="${noticia.imagem_url}" alt="${noticia.titulo}" class="news-image">
+                    </div>
+                `;
+            }
+
+            article.innerHTML = `
+                ${badgeHTML}
+                ${imagemHTML}
+                <span class="news-category">${noticia.categoria || 'Geral'}</span>
+                <h3>${noticia.titulo}</h3>
+                <p>${noticia.resumo || (noticia.conteudo ? noticia.conteudo.substring(0, 100) + '...' : '')}</p>
+                <div class="news-meta">
+                    <span><i class="fas fa-clock"></i> ${tempoDecorrido}</span>
+                    <span><i class="fas fa-eye"></i> ${noticia.visualizacoes || 0}</span>
+                </div>
+                <a href="pages/artigo.php?id=${noticia.id}" class="read-more">Leia mais →</a>
+            `;
+
+            return article;
+        }
+
+        // Função para determinar o badge da notícia
+        function determinarBadge(dataPublicacao) {
+            const dataPub = new Date(dataPublicacao);
+            const agora = new Date();
+            const diferencaHoras = (agora - dataPub) / (1000 * 60 * 60);
+
+            if (diferencaHoras < 24) {
+                return { class: 'new', text: 'NOVO' };
+            } else if (diferencaHoras < 72) {
+                return { class: 'trending', text: 'EM ALTA' };
+            } else if (Math.random() > 0.7) {
+                return { class: 'breaking', text: 'EXCLUSIVO' };
+            }
+            
+            return null;
+        }
+
+        // Função para formatar o tempo decorrido
+        function formatarTempoDecorrido(dataString) {
+            const data = new Date(dataString);
+            const agora = new Date();
+            const diferencaMs = agora - data;
+            const diferencaHoras = Math.floor(diferencaMs / (1000 * 60 * 60));
+            const diferencaDias = Math.floor(diferencaHoras / 24);
+
+            if (diferencaHoras < 1) {
+                return 'Agora mesmo';
+            } else if (diferencaHoras < 24) {
+                return `Há ${diferencaHoras} hora${diferencaHoras > 1 ? 's' : ''}`;
+            } else if (diferencaDias < 7) {
+                return `Há ${diferencaDias} dia${diferencaDias > 1 ? 's' : ''}`;
+            } else {
+                return data.toLocaleDateString('pt-BR');
+            }
+        }
+
+        // Carrega as notícias quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            carregarNoticias();
+        });
     </script>
 
 </body>
-
 </html>
