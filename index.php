@@ -563,13 +563,14 @@
     // Carrega as notícias quando a página carregar
     document.addEventListener('DOMContentLoaded', function() {
         carregarNoticias();
-        
+
         // Navegação ativa
         const navLinks = document.querySelectorAll('.nav-links a');
         const currentPath = window.location.pathname;
         navLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
-            if (currentPath.includes(linkHref) || (linkHref === 'index.php' && currentPath.endsWith('/'))) {
+            if (currentPath.includes(linkHref) || (linkHref === 'index.php' && currentPath.endsWith(
+                    '/'))) {
                 link.classList.add('active');
             }
         });
