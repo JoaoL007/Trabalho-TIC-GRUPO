@@ -746,6 +746,7 @@
     flex: 1;
 }
 
+.category-card .stat-number,
 .stat-number {
     font-size: 2rem;
     font-weight: 800;
@@ -753,8 +754,10 @@
     margin-bottom: 0.25rem;
     display: block;
     opacity: 1 !important;
+    text-decoration: none !important;
 }
 
+.category-card .stat-label,
 .stat-label {
     font-size: 0.85rem;
     color: #475569 !important;
@@ -763,6 +766,12 @@
     letter-spacing: 0.5px;
     display: block;
     opacity: 1 !important;
+    text-decoration: none !important;
+}
+
+.category-card:hover .stat-number,
+.category-card:hover .stat-label {
+    color: #0f172a !important;
 }
 
 .view-category-btn {
