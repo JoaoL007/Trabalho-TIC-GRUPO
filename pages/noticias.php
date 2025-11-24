@@ -40,153 +40,132 @@ function formatarData($data_string) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notícias - RoboNews</title>
+    <title>Notícias - RoboNews | Portal de Tecnologia e Robótica</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Estilos básicos para funcionalidade - sua equipe de estilo pode substituir */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background: #ffffff;
-        }
-        
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .news-grid {
-            display: grid;
-            gap: 2rem;
-        }
-        
-        .news-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .news-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .news-content {
-            padding: 1.5rem;
-        }
-        
-        .news-category {
-            color: #2563eb;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        
-        .news-meta {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            color: #64748b;
-            font-size: 0.85rem;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+    <link rel="stylesheet" href="../assets/css/noticias.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="top-bar">
-            <div class="container">
-                <div class="top-bar-left">
-                    <span><i class="fas fa-clock"></i>
-                        <?php echo date('d/m/Y'); ?>
-                    </span>
-                    <span><i class="fas fa-bolt"></i> Notícias em tempo real</span>
-                </div>
-                <div class="top-bar-right">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span><i class="fas fa-clock"></i>
+                    <?php date_default_timezone_set('Europe/Lisbon'); echo date('l, d F Y'); ?>
+                </span>
+                <span><i class="fas fa-bolt"></i> Notícias em tempo real</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
+    </div>
 
-        <nav>
-            <div class="container">
-                <div class="nav-container">
-                    <a href="../index.php" class="logo">
-                        <img src="../assets/images/logo-simple.svg" alt="RoboNews Logo">
-                        <span>RoboNews</span>
-                    </a>
-                    <ul class="nav-links">
-                        <li><a href="../index.php">Início</a></li>
-                        <li><a href="noticias.php" class="active">Notícias</a></li>
-                        <li><a href="categorias.php">Categorias</a></li>
-                        <li><a href="sobre.php">Sobre</a></li>
-                    </ul>
-                    <div class="nav-right">
-                        <div class="search-box">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Pesquisar notícias...">
-                        </div>
-                    </div>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="../index.php" class="logo">
+                <img src="../assets/images/logo-simple.svg" alt="RoboNews Logo">
+                <span>RoboNews</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.php">Início</a></li>
+                <li><a href="noticias.php" class="active">Notícias</a></li>
+                <li><a href="categorias.php">Categorias</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Pesquisar notícias..." id="searchInput">
                 </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+
+    <!-- Trending Topics Bar -->
+    <div class="trending-bar">
+        <div class="trending-container">
+            <div class="trending-label">
+                <i class="fas fa-fire"></i> Em Alta
+            </div>
+            <div class="trending-topics">
+                <a href="#">IA Generativa</a>
+                <a href="#">Robôs Colaborativos</a>
+                <a href="#">Veículos Autónomos</a>
+                <a href="#">Automação Industrial</a>
+                <a href="#">Drones Inteligentes</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>📰 Todas as Notícias</h1>
+            <p>Fique por dentro das últimas novidades em robótica, inteligência artificial e tecnologia</p>
+            <div class="breadcrumb">
+                <a href="../index.php"><i class="fas fa-home"></i> Início</a>
+                <span>/</span>
+                <span>Notícias</span>
+            </div>
+        </div>
+    </section>
 
     <!-- Conteúdo Principal -->
-    <main class="container" style="padding: 2rem 0;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 2rem; color: #0f172a;">📰 Todas as Notícias</h1>
+    <main class="news-listing-section">
+        <div class="container">
 
-        <!-- Seção Principal: 1 notícia grande + 3 laterais -->
-        <section style="margin-bottom: 4rem;">
-            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+            <!-- Seção Principal: 1 notícia grande + 3 laterais -->
+            <div class="news-main-grid">
                 <!-- Notícia Principal -->
                 <?php if ($noticia_principal): ?>
-                <article class="news-card">
-                    <img src="<?php echo $noticia_principal['imagem_url']; ?>" alt="<?php echo $noticia_principal['titulo']; ?>" class="news-image">
-                    <div class="news-content">
-                        <span class="news-category"><?php echo $noticia_principal['categoria']; ?></span>
-                        <h2 style="font-size: 1.8rem; margin: 1rem 0;"><?php echo $noticia_principal['titulo']; ?></h2>
-                        <p style="color: #334155; margin-bottom: 1rem;"><?php echo $noticia_principal['resumo']; ?></p>
-                        <div class="news-meta">
-                            <span><i class="fas fa-clock"></i> <?php echo formatarData($noticia_principal['publicado_em']); ?></span>
-                            <span><i class="fas fa-eye"></i> <?php echo $noticia_principal['visualizacoes']; ?></span>
+                <div class="news-featured-large">
+                    <article class="news-card-large">
+                        <img src="<?php echo $noticia_principal['imagem_url']; ?>" alt="<?php echo $noticia_principal['titulo']; ?>" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category"><?php echo $noticia_principal['categoria']; ?></span>
+                            <h2><?php echo $noticia_principal['titulo']; ?></h2>
+                            <p><?php echo $noticia_principal['resumo']; ?></p>
+                            <div class="news-meta">
+                                <span><i class="fas fa-clock"></i> <?php echo formatarData($noticia_principal['publicado_em']); ?></span>
+                                <span><i class="fas fa-eye"></i> <?php echo $noticia_principal['visualizacoes']; ?></span>
+                            </div>
+                            <a href="artigo.php?id=<?php echo $noticia_principal['id']; ?>" class="read-more">
+                                Ler notícia completa →
+                            </a>
                         </div>
-                        <a href="artigo.php?id=<?php echo $noticia_principal['id']; ?>" style="color: #2563eb; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 1rem;">
-                            Ler notícia completa →
-                        </a>
-                    </div>
-                </article>
+                    </article>
+                </div>
                 <?php endif; ?>
 
                 <!-- Notícias Laterais -->
-                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="news-sidebar">
                     <?php foreach ($noticias_laterais as $noticia): ?>
-                    <article class="news-card">
-                        <img src="<?php echo $noticia['imagem_url']; ?>" alt="<?php echo $noticia['titulo']; ?>" class="news-image" style="height: 120px;">
+                    <article class="news-card-small">
+                        <img src="<?php echo $noticia['imagem_url']; ?>" alt="<?php echo $noticia['titulo']; ?>" class="news-image">
                         <div class="news-content">
-                            <span class="news-category" style="font-size: 0.75rem;"><?php echo $noticia['categoria']; ?></span>
-                            <h3 style="font-size: 1rem; margin: 0.5rem 0;"><?php echo $noticia['titulo']; ?></h3>
-                            <div class="news-meta" style="font-size: 0.75rem;">
+                            <span class="news-category"><?php echo $noticia['categoria']; ?></span>
+                            <h3><?php echo $noticia['titulo']; ?></h3>
+                            <div class="news-meta">
                                 <span><i class="fas fa-clock"></i> <?php echo formatarData($noticia['publicado_em']); ?></span>
                             </div>
-                            <a href="artigo.php?id=<?php echo $noticia['id']; ?>" style="color: #2563eb; text-decoration: none; font-size: 0.85rem; font-weight: 600;">
+                            <a href="artigo.php?id=<?php echo $noticia['id']; ?>" class="read-more">
                                 Ler mais →
                             </a>
                         </div>
@@ -194,77 +173,69 @@ function formatarData($data_string) {
                     <?php endforeach; ?>
                 </div>
             </div>
-        </section>
 
-        <!-- Seção de Notícias em Destaque -->
-        <section>
-            <h2 style="font-size: 2rem; margin-bottom: 2rem; color: #0f172a;">🌟 Notícias em Destaque</h2>
-            <div class="news-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                <?php foreach ($noticias_destaque as $noticia): ?>
-                <article class="news-card">
-                    <img src="<?php echo $noticia['imagem_url']; ?>" alt="<?php echo $noticia['titulo']; ?>" class="news-image">
-                    <div class="news-content">
-                        <span class="news-category"><?php echo $noticia['categoria']; ?></span>
-                        <h3 style="font-size: 1.25rem; margin: 0.75rem 0;"><?php echo $noticia['titulo']; ?></h3>
-                        <p style="color: #334155; margin-bottom: 1rem; font-size: 0.9rem;"><?php echo $noticia['resumo']; ?></p>
-                        <div class="news-meta">
-                            <span><i class="fas fa-clock"></i> <?php echo formatarData($noticia['publicado_em']); ?></span>
-                            <span><i class="fas fa-eye"></i> <?php echo $noticia['visualizacoes']; ?></span>
+            <!-- Seção de Notícias em Destaque -->
+            <section style="margin-top: 4rem;">
+                <h2 class="section-title">🌟 Notícias em Destaque</h2>
+                <div class="news-grid">
+                    <?php foreach ($noticias_destaque as $noticia): ?>
+                    <article class="news-card">
+                        <img src="<?php echo $noticia['imagem_url']; ?>" alt="<?php echo $noticia['titulo']; ?>" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category"><?php echo $noticia['categoria']; ?></span>
+                            <h3><?php echo $noticia['titulo']; ?></h3>
+                            <p><?php echo $noticia['resumo']; ?></p>
+                            <div class="news-meta">
+                                <span><i class="fas fa-clock"></i> <?php echo formatarData($noticia['publicado_em']); ?></span>
+                                <span><i class="fas fa-eye"></i> <?php echo $noticia['visualizacoes']; ?></span>
+                            </div>
+                            <a href="artigo.php?id=<?php echo $noticia['id']; ?>" class="read-more">
+                                Ler mais →
+                            </a>
                         </div>
-                        <a href="artigo.php?id=<?php echo $noticia['id']; ?>" style="color: #2563eb; text-decoration: none; font-weight: 600;">
-                            Ler mais →
-                        </a>
-                    </div>
-                </article>
-                <?php endforeach; ?>
-            </div>
-        </section>
+                    </article>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer style="background: #1e293b; color: white; padding: 3rem 0; margin-top: 4rem;">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
-                <div>
-                    <h3 style="color: #3b82f6; margin-bottom: 1rem;">RoboNews</h3>
-                    <p style="color: #94a3b8;">Sua fonte confiável de notícias sobre robótica, IA e tecnologia.</p>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 1rem;">Links Rápidos</h4>
-                    <ul style="list-style: none; color: #94a3b8;">
-                        <li><a href="../index.php" style="color: #94a3b8; text-decoration: none;">Início</a></li>
-                        <li><a href="noticias.php" style="color: #94a3b8; text-decoration: none;">Notícias</a></li>
-                        <li><a href="categorias.php" style="color: #94a3b8; text-decoration: none;">Categorias</a></li>
-                        <li><a href="sobre.php" style="color: #94a3b8; text-decoration: none;">Sobre</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 1rem;">Categorias</h4>
-                    <ul style="list-style: none; color: #94a3b8;">
-                        <li><a href="categoria.php?cat=ia" style="color: #94a3b8; text-decoration: none;">IA</a></li>
-                        <li><a href="categoria.php?cat=robotica" style="color: #94a3b8; text-decoration: none;">Robótica</a></li>
-                        <li><a href="categoria.php?cat=iot" style="color: #94a3b8; text-decoration: none;">IoT</a></li>
-                        <li><a href="categoria.php?cat=industria" style="color: #94a3b8; text-decoration: none;">Indústria 4.0</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 1rem;">Contactos</h4>
-                    <p style="color: #94a3b8;">email@robonews.com</p>
-                    <p style="color: #94a3b8;">+351 123 456 789</p>
-                </div>
-            </div>
-            <div style="border-top: 1px solid #334155; margin-top: 2rem; padding-top: 2rem; text-align: center; color: #94a3b8;">
-                <p>&copy; 2024 RoboNews. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include '../includes/footer.php'; ?>
 
     <script>
-        // Funcionalidade básica de pesquisa
-        document.querySelector('.search-box input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && this.value.trim()) {
-                window.location.href = 'noticias.php?search=' + encodeURIComponent(this.value);
-            }
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+        }
+
+        // Funcionalidade de pesquisa
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && this.value.trim()) {
+                    window.location.href = 'noticias.php?search=' + encodeURIComponent(this.value);
+                }
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
     </script>
 </body>

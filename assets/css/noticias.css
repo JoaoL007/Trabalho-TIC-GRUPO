@@ -60,20 +60,29 @@
 .news-card-large {
     background: white;
     border-radius: 12px;
-    overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    border-left: 5px solid #2563eb;
+    border-top: 1px solid #e2e8f0;
+    overflow: hidden;
+    position: relative;
 }
 
 .news-card-large:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.3);
+    border-left-color: #1e40af;
 }
 
 .news-card-large .news-image {
     width: 100%;
     height: 400px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.news-card-large:hover .news-image {
+    transform: scale(1.05);
 }
 
 .news-card-large .news-content {
@@ -83,26 +92,43 @@
 .news-card-large h2 {
     font-size: 1.8rem;
     margin: 1rem 0;
-    color: var(--dark);
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.news-card-large p {
+    color: #334155;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
 }
 
 .news-card-small {
     background: white;
     border-radius: 12px;
-    overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
+    border-left: 4px solid #2563eb;
+    border-top: 1px solid #e2e8f0;
+    overflow: hidden;
+    position: relative;
 }
 
 .news-card-small:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+    border-left-color: #1e40af;
 }
 
 .news-card-small .news-image {
     width: 100%;
     height: 120px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.news-card-small:hover .news-image {
+    transform: scale(1.05);
 }
 
 .news-card-small .news-content {
@@ -112,8 +138,118 @@
 .news-card-small h3 {
     font-size: 1rem;
     margin: 0.5rem 0;
-    color: var(--dark);
+    color: #0f172a;
     line-height: 1.4;
+    font-weight: 700;
+}
+
+/* ===== NEWS GRID (DESTACADAS) ===== */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.news-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 5px solid #2563eb;
+    border-top: 1px solid #e2e8f0;
+    overflow: hidden;
+    position: relative;
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.3);
+    border-left-color: #1e40af;
+}
+
+.news-card .news-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-image {
+    transform: scale(1.05);
+}
+
+.news-card .news-content {
+    padding: 1.5rem;
+}
+
+.news-card h3 {
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.news-card p {
+    color: #334155;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* ===== NEWS CARD ELEMENTS ===== */
+.news-category {
+    display: inline-block;
+    color: #2563eb;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.news-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.news-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.news-meta i {
+    color: #2563eb;
+}
+
+.read-more {
+    color: #1e40af;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.read-more:hover {
+    color: #2563eb;
+    gap: 10px;
 }
 
 /* ===== LOAD MORE BUTTON ===== */
