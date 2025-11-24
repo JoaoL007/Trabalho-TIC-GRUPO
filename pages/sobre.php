@@ -13,5 +13,4 @@ include '../includes/nav.php';
         </section>
     </div>
 </main>
-
 <?php include '../includes/footer.php'; ?>

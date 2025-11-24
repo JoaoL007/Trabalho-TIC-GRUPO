@@ -10,29 +10,11 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
-
+<php>
+<?php include '../includes/header.php'; ?>
+<?php include '../includes/nav.php'; ?>
+</php>
 <body>
-    <!-- Header temporário -->
-    <header class="site-header">
-        <div class="container">
-            <div class="logo">
-                <h1>RoboNews</h1>
-            </div>
-        </div>
-    </header>
-
-    <!-- Navegação temporária -->
-    <nav class="main-nav">
-        <div class="container">
-            <ul class="nav-menu">
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="noticias.php" class="active">Notícias</a></li>
-                <li><a href="../pages/sobre.php">Sobre</a></li>
-                <li><a href="../pages/contato.php">Contato</a></li>
-            </ul>
-        </div>
-    </nav>
-
     <main class="news-main">
         <!-- Hero Section com Slider -->
         <section class="news-hero">
