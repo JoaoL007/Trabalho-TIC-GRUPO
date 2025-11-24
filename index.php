@@ -110,7 +110,7 @@
             <h2 class="section-title">📰 Notícias em Destaque</h2>
 
             <div class="news-grid" id="news-grid-container">
-                <div class="loading" style="text-align: center; padding: 2rem; color: #94a3b8;">
+                <div class="loading loading-state">
                     <i class="fas fa-spinner fa-spin"></i> Carregando notícias...
                 </div>
             </div>
@@ -466,7 +466,7 @@
             const newsGrid = document.querySelector('.news-grid');
             if (newsGrid) {
                 newsGrid.innerHTML =
-                    '<div style="text-align: center; padding: 2rem; color: #ef4444;">Erro ao carregar notícias. Verifique o arquivo noticias.json</div>';
+                    '<div class="error-message">Erro ao carregar notícias. Verifique o arquivo noticias.json</div>';
             }
         }
     }
@@ -576,6 +576,8 @@
         });
     });
     </script>
+
+    <?php include 'includes/footer.php'; ?>
 
 </body>
 

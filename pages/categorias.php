@@ -268,7 +268,7 @@
     <section class="popular-section">
         <div class="container">
             <h2><i class="fas fa-fire"></i> Tópicos em Alta</h2>
-            <p class="section-subtitle" style="color: #64748b; margin-bottom: 2rem;">Explore os temas mais populares e tendências tecnológicas do momento</p>
+            <p class="section-subtitle">Explore os temas mais populares e tendências tecnológicas do momento</p>
             <div class="topics-grid">
                 <a href="noticias.php?topico=chatgpt" class="topic-tag"><i class="fas fa-robot"></i> ChatGPT</a>
                 <a href="noticias.php?topico=tesla" class="topic-tag"><i class="fas fa-car"></i> Tesla</a>

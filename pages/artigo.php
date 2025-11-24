@@ -140,43 +140,7 @@ $noticia_atual['visualizacoes']++;
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>RoboNews</h3>
-                    <p>Sua fonte confiável de notícias sobre robótica, IA e tecnologia.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Links Rápidos</h4>
-                    <ul class="footer-links">
-                        <li><a href="../index.php">Início</a></li>
-                        <li><a href="noticias.php">Notícias</a></li>
-                        <li><a href="categorias.php">Categorias</a></li>
-                        <li><a href="sobre.php">Sobre</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Categorias</h4>
-                    <ul class="footer-links">
-                        <li><a href="categoria.php?cat=ia">Inteligência Artificial</a></li>
-                        <li><a href="categoria.php?cat=robotica">Robótica</a></li>
-                        <li><a href="categoria.php?cat=iot">IoT & Conectividade</a></li>
-                        <li><a href="categoria.php?cat=industria">Indústria 4.0</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contactos</h4>
-                    <p>email@robonews.com</p>
-                    <p>+351 123 456 789</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 RoboNews. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include '../includes/footer.php'; ?>
 
     <script>
         // Funcionalidade de pesquisa

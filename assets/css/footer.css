@@ -40,6 +40,11 @@
     filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.5));
 }
 
+.footer-logo-icon {
+    font-size: 2.5rem;
+    color: #2563eb;
+}
+
 .footer-logo h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;

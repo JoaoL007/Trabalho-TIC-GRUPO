@@ -7,7 +7,7 @@
             <!-- About Section -->
             <div class="footer-section">
                 <div class="footer-logo">
-                    <i class="fas fa-robot" style="font-size: 2.5rem; color: #2563eb;"></i>
+                    <i class="fas fa-robot footer-logo-icon"></i>
                     <h3>RoboNews</h3>
                 </div>
                 <p class="footer-description">
