@@ -49,10 +49,11 @@
 }
 
 .footer-description {
-    color: #cbd5e1;
+    color: #e2e8f0;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
+    opacity: 1 !important;
 }
 
 /* ===== SOCIAL LINKS ===== */
@@ -102,17 +103,18 @@
 }
 
 .footer-links a {
-    color: #cbd5e1;
+    color: #e2e8f0;
     text-decoration: none;
     font-size: 0.95rem;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    opacity: 1 !important;
 }
 
 .footer-links a:hover {
-    color: #3b82f6;
+    color: #60a5fa;
     padding-left: 0.5rem;
 }
 
@@ -132,7 +134,8 @@
     align-items: start;
     gap: 0.75rem;
     margin-bottom: 1rem;
-    color: #cbd5e1;
+    color: #e2e8f0;
+    opacity: 1 !important;
 }
 
 .footer-contact-item i {
@@ -203,8 +206,9 @@
 }
 
 .footer-copyright {
-    color: #94a3b8;
+    color: #cbd5e1;
     font-size: 0.9rem;
+    opacity: 1 !important;
 }
 
 .footer-bottom-links {
@@ -216,14 +220,15 @@
 }
 
 .footer-bottom-links a {
-    color: #cbd5e1;
+    color: #e2e8f0;
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s ease;
+    opacity: 1 !important;
 }
 
 .footer-bottom-links a:hover {
-    color: #3b82f6;
+    color: #60a5fa;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
