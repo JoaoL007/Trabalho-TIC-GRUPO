@@ -749,8 +749,9 @@
 .stat-number {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--primary-color);
+    color: #1e293b;
     margin-bottom: 0.25rem;
+    display: block;
 }
 
 .stat-label {
@@ -759,6 +760,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    display: block;
 }
 
 .view-category-btn {
