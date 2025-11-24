@@ -749,18 +749,20 @@
 .stat-number {
     font-size: 2rem;
     font-weight: 800;
-    color: #1e293b;
+    color: #0f172a !important;
     margin-bottom: 0.25rem;
     display: block;
+    opacity: 1 !important;
 }
 
 .stat-label {
     font-size: 0.85rem;
-    color: #64748b;
+    color: #475569 !important;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: block;
+    opacity: 1 !important;
 }
 
 .view-category-btn {
