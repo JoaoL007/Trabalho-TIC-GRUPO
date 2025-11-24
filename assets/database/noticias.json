@@ -14,7 +14,7 @@
     {
       "id": 2,
       "titulo": "Robô Cirurgião Realiza Primeira Cirurgia Autónoma",
-      "imagem_url": "https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
+      "imagem_url": "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "categoria": "SAÚDE & ROBÓTICA",
       "resumo": "Avance revolucionário na medicina com robô que realiza procedimentos complexos sem intervenção humana.",
       "conteudo": "Pela primeira vez na história da medicina, um robô cirurgião realizou com sucesso uma cirurgia complexa de forma completamente autónoma...",
@@ -25,7 +25,7 @@
     {
       "id": 3,
       "titulo": "Tesla Anuncia Primeira Fábrica 100% Automatizada",
-      "imagem_url": "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
+      "imagem_url": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "categoria": "INDÚSTRIA 4.0",
       "resumo": "A Tesla revela plans para a primeira fábrica onde humanos serão supervisores, não operários.",
       "conteudo": "A Tesla Motors anunciou hoje seus planos ambiciosos para construir a primeira fábrica completamente automatizada do mundo...",
@@ -36,7 +36,7 @@
     {
       "id": 4,
       "titulo": "Chip Neural Permite Controle Mental de Dispositivos",
-      "imagem_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
+      "imagem_url": "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "categoria": "NEUROCIÊNCIA",
       "resumo": "Nova tecnologia permite controlar computadores e dispositivos apenas com o pensamento.",
       "conteudo": "Cientistas desenvolveram um chip neural revolucionário que permite aos usuários controlarem dispositivos eletrónicos através de sinais cerebrais...",
@@ -47,7 +47,7 @@
     {
       "id": 5,
       "titulo": "Robôs Domésticos Conquistam Mercado Europeu",
-      "imagem_url": "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
+      "imagem_url": "https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "categoria": "CONSUMIDOR",
       "resumo": "Vendas de robôs assistentes domésticos disparam na Europa com avanços em IA.",
       "conteudo": "O mercado europeu de robôs domésticos registrou um crescimento recorde de 156% no último trimestre...",
@@ -58,7 +58,7 @@
     {
       "id": 6,
       "titulo": "NASA Usa IA para Explorar Marte com Novos Rovers",
-      "imagem_url": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
+      "imagem_url": "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "categoria": "ESPAÇO",
       "resumo": "Novos rovers da NASA utilizam inteligência artificial para tomar decisões autónomas em Marte.",
       "conteudo": "A NASA anunciou que seus mais recentes rovers em Marte estão utilizando sistemas de IA avançada para navegar e realizar descobertas científicas...",
@@ -80,7 +80,7 @@
     {
       "id": 8,
       "titulo": "Inteligência Artificial Deteta Cancro com 99% de Precisão",
-      "imagem_url": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
+      "imagem_url": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "categoria": "INTELIGÊNCIA ARTIFICIAL",
       "resumo": "Sistema de IA desenvolvido por investigadores alcança taxas de precisão sem precedentes no diagnóstico de cancro.",
       "conteudo": "Um novo algoritmo de inteligência artificial desenvolvido por investigadores conseguiu detetar vários tipos de cancro com uma precisão de 99%...",
@@ -91,7 +91,7 @@
     {
       "id": 9,
       "titulo": "Drones Autónomos Entregam Emergências Médicas",
-      "imagem_url": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
+      "imagem_url": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "categoria": "IOT & CONECTIVIDADE",
       "resumo": "Sistema de drones começa a operar em cidades para entregas rápidas de equipamento médico de emergência.",
       "conteudo": "Uma nova frota de drones autónomos começou a operar em várias cidades europeias para realizar entregas de emergência de equipamento médico...",
@@ -102,7 +102,7 @@
     {
       "id": 10,
       "titulo": "Fábrica Inteligente Reduz Custos em 40% com Automação",
-      "imagem_url": "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
+      "imagem_url": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "categoria": "INDÚSTRIA 4.0",
       "resumo": "Implementação de sistemas de automação avançada resulta em redução significativa de custos operacionais.",
       "conteudo": "Uma fábrica alemã conseguiu reduzir seus custos operacionais em 40% após implementar um sistema completo de automação industrial...",
@@ -113,7 +113,7 @@
     {
       "id": 11,
       "titulo": "Robôs de Companhia para Idosos Ganham Popularidade",
-      "imagem_url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
+      "imagem_url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "categoria": "SAÚDE & ROBÓTICA",
       "resumo": "Robôs assistentes estão a transformar a qualidade de vida de idosos em lares.",
       "conteudo": "Novos robôs de companhia estão a ser implementados em lares de idosos por toda a Europa...",
@@ -124,7 +124,7 @@
     {
       "id": 12,
       "titulo": "Carros Autónomos Reduzem Acidentes em 60%",
-      "imagem_url": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
+      "imagem_url": "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "categoria": "TECNOLOGIA AUTOMOTIVA",
       "resumo": "Estudo revela que veículos autónomos são significativamente mais seguros que condutores humanos.",
       "conteudo": "Um estudo recente realizado em várias cidades europeias demonstrou que os carros autónomos reduziram acidentes em 60%...",
