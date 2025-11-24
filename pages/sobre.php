@@ -177,44 +177,56 @@
     <!-- Technologies Section -->
     <section class="tech-section">
         <div class="container">
-            <h2 class="section-title">💻 Tecnologias Utilizadas</h2>
+            <h2 class="section-title"><i class="fas fa-laptop-code"></i> Tecnologias Utilizadas</h2>
             <p class="section-subtitle">
                 Ferramentas e tecnologias que tornam o RoboNews possível
             </p>
 
             <div class="tech-grid">
                 <div class="tech-card">
-                    <div class="tech-icon">🌐</div>
+                    <div class="tech-icon" style="background: linear-gradient(135deg, #e34c26 0%, #f06529 100%);">
+                        <i class="fab fa-html5"></i>
+                    </div>
                     <h3>HTML5 & CSS3</h3>
                     <p>Estrutura semântica moderna e estilização responsiva para uma experiência impecável.</p>
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-icon">⚡</div>
+                    <div class="tech-icon" style="background: linear-gradient(135deg, #f0db4f 0%, #f7df1e 100%); color: #000;">
+                        <i class="fab fa-js"></i>
+                    </div>
                     <h3>JavaScript</h3>
                     <p>Interatividade e funcionalidades dinâmicas para uma navegação fluida e envolvente.</p>
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-icon">🐘</div>
+                    <div class="tech-icon" style="background: linear-gradient(135deg, #777BB3 0%, #8892BF 100%);">
+                        <i class="fab fa-php"></i>
+                    </div>
                     <h3>PHP</h3>
                     <p>Lógica do servidor e processamento backend para gestão de conteúdo dinâmico.</p>
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-icon">🗄️</div>
+                    <div class="tech-icon" style="background: linear-gradient(135deg, #00758f 0%, #00a3cc 100%);">
+                        <i class="fas fa-database"></i>
+                    </div>
                     <h3>MySQL</h3>
                     <p>Banco de dados robusto para armazenamento seguro de notícias e informações.</p>
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-icon">🚀</div>
+                    <div class="tech-icon" style="background: linear-gradient(135deg, #fb7a24 0%, #ff9f4a 100%);">
+                        <i class="fas fa-rocket"></i>
+                    </div>
                     <h3>XAMPP</h3>
                     <p>Ambiente de desenvolvimento local completo para testes e desenvolvimento ágil.</p>
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-icon">📦</div>
+                    <div class="tech-icon" style="background: linear-gradient(135deg, #f34f29 0%, #e44d26 100%);">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
                     <h3>Git & GitHub</h3>
                     <p>Controle de versão e colaboração eficiente entre toda a equipa de desenvolvimento.</p>
                 </div>

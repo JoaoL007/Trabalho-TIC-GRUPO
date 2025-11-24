@@ -251,9 +251,75 @@
 
 .tech-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+}
+
+.tech-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: white;
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.tech-card:hover::before {
+    transform: scaleX(1);
+}
+
+.tech-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+    border-color: #3b82f6;
+}
+
+.tech-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover .tech-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+}
+
+.tech-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+}
+
+.tech-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .tech-item {
@@ -270,11 +336,6 @@
     border-color: var(--primary-color);
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
-}
-
-.tech-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
 }
 
 .tech-name {
@@ -446,6 +507,81 @@
     background: #f8fafc;
     padding: 1.5rem;
     border-radius: 8px;
+}
+
+/* ===== POPULAR TOPICS SECTION ===== */
+.popular-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+}
+
+.popular-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: 800;
+}
+
+.popular-section .section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.topics-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.topic-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.topic-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.topic-tag:hover::before {
+    left: 100%;
+}
+
+.topic-tag:hover {
+    background: rgba(37, 99, 235, 0.3);
+    border-color: #3b82f6;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.topic-tag i {
+    font-size: 1.1rem;
+    color: #60a5fa;
 }
 
 .article-tags {

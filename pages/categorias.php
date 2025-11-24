@@ -267,20 +267,21 @@
     <!-- Popular Topics Section -->
     <section class="popular-section">
         <div class="container">
-            <h2>🔥 Tópicos em Alta</h2>
+            <h2><i class="fas fa-fire"></i> Tópicos em Alta</h2>
+            <p class="section-subtitle" style="color: #64748b; margin-bottom: 2rem;">Explore os temas mais populares e tendências tecnológicas do momento</p>
             <div class="topics-grid">
-                <a href="noticias.php?topico=chatgpt" class="topic-tag">ChatGPT</a>
-                <a href="noticias.php?topico=tesla" class="topic-tag">Tesla</a>
-                <a href="noticias.php?topico=boston-dynamics" class="topic-tag">Boston Dynamics</a>
-                <a href="noticias.php?topico=spacex" class="topic-tag">SpaceX</a>
-                <a href="noticias.php?topico=neuralink" class="topic-tag">Neuralink</a>
-                <a href="noticias.php?topico=quantum" class="topic-tag">Computação Quântica</a>
-                <a href="noticias.php?topico=5g" class="topic-tag">5G</a>
-                <a href="noticias.php?topico=blockchain" class="topic-tag">Blockchain</a>
-                <a href="noticias.php?topico=metaverso" class="topic-tag">Metaverso</a>
-                <a href="noticias.php?topico=vr-ar" class="topic-tag">VR & AR</a>
-                <a href="noticias.php?topico=edge-computing" class="topic-tag">Edge Computing</a>
-                <a href="noticias.php?topico=cybersecurity" class="topic-tag">Cibersegurança</a>
+                <a href="noticias.php?topico=chatgpt" class="topic-tag"><i class="fas fa-robot"></i> ChatGPT</a>
+                <a href="noticias.php?topico=tesla" class="topic-tag"><i class="fas fa-car"></i> Tesla</a>
+                <a href="noticias.php?topico=boston-dynamics" class="topic-tag"><i class="fas fa-walking"></i> Boston Dynamics</a>
+                <a href="noticias.php?topico=spacex" class="topic-tag"><i class="fas fa-rocket"></i> SpaceX</a>
+                <a href="noticias.php?topico=neuralink" class="topic-tag"><i class="fas fa-brain"></i> Neuralink</a>
+                <a href="noticias.php?topico=quantum" class="topic-tag"><i class="fas fa-atom"></i> Computação Quântica</a>
+                <a href="noticias.php?topico=5g" class="topic-tag"><i class="fas fa-signal"></i> 5G</a>
+                <a href="noticias.php?topico=blockchain" class="topic-tag"><i class="fas fa-cube"></i> Blockchain</a>
+                <a href="noticias.php?topico=metaverso" class="topic-tag"><i class="fas fa-vr-cardboard"></i> Metaverso</a>
+                <a href="noticias.php?topico=vr-ar" class="topic-tag"><i class="fas fa-glasses"></i> VR & AR</a>
+                <a href="noticias.php?topico=edge-computing" class="topic-tag"><i class="fas fa-network-wired"></i> Edge Computing</a>
+                <a href="noticias.php?topico=cybersecurity" class="topic-tag"><i class="fas fa-shield-alt"></i> Cibersegurança</a>
             </div>
         </div>
     </section>
